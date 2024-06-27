@@ -3,8 +3,8 @@
 * Workday - A time clock application for employees
 * Email: official.codefactor@gmail.com
 * Version: 1.1
-* Author: Brian Luna
-* Copyright 2020 Codefactor
+* Author: Audrine Whrite
+* Copyright 2024 Codefactor
 */
 namespace App\Classes;
 
