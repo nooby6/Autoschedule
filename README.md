@@ -1,2 +1,0 @@
-# Portfolio_project
-Autoschedule
