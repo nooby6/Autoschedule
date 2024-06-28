@@ -1,7 +1,0 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const loginButton = document.getElementById('do-login');
-    loginButton.addEventListener('click', function(event) {
-        event.preventDefault();
-        alert('Login button clicked');
-    });
-});
