@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+}
+
+.logo {
+    display: inline-block;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    float: right;
+}
+
+.nav-links li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.btn {
+    background: #f5a623;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+main {
+    text-align: center;
+}
+
+#hero {
+    background: #2ecc71;
+    color: white;
+    padding: 100px 20px;
+}
+
+#about, #features {
+    padding: 50px 20px;
+}
+
+#features ul {
+    list-style: none;
+    padding: 0;
+}
+
+#features li {
+    background: #ecf0f1;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.login {
+    padding: 50px 20px;
+    background: #3498db;
+    color: white;
+}
+
+.login .head {
+    text-align: center;
+}
+
+.login .company {
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+.login .msg {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.login .form {
+    text-align: center;
+}
+
+.login .text, .login .password {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.login .btn-login {
+    background: #f5a623;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.login .forgot {
+    color: #ecf0f1;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+footer {
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.footer .heart {
+    color: red;
+}
