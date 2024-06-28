@@ -19,8 +19,8 @@ body, html {
     width: 50%;
     border-radius: 20px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
-    margin: 5em auto;
     display: flex;
+    margin: 5em auto;
 }
 
 .company__info {
@@ -30,9 +30,7 @@ body, html {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     color: #fff;
-    padding: 2em;
 }
 
 .fa-android {
@@ -72,22 +70,25 @@ body, html {
     border-bottom-right-radius: 20px;
     border-top: 1px solid #ccc;
     border-right: 1px solid #ccc;
+    padding: 2em;
+    width: 60%;
+}
+
+.form-group {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2em;
-}
-
-form {
-    width: 100%;
 }
 
 .form__input {
     width: 100%;
     border: 0;
+    border-radius: 0;
     border-bottom: 1px solid #aaa;
-    padding: 1em 0.5em;
-    margin: 1.5em 0;
+    padding: 1em 0.5em 0.5em;
+    padding-left: 2em;
+    outline: none;
+    margin: 1.5em auto;
     transition: all 0.5s ease;
 }
 
@@ -95,19 +96,18 @@ form {
     border-bottom-color: #008080;
     box-shadow: 0 0 5px rgba(0, 80, 80, 0.4);
     border-radius: 4px;
-    outline: none;
 }
 
 .btn {
     transition: all 0.5s ease;
-    width: 100%;
+    width: 70%;
     border-radius: 30px;
     color: #008080;
     font-weight: 600;
     background-color: #fff;
     border: 1px solid #008080;
-    padding: 0.75em;
-    margin: 1.5em 0;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
     cursor: pointer;
 }
 
@@ -119,9 +119,6 @@ form {
 .footer {
     background: #f1f1f1;
     padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
     text-align: center;
 }
 
