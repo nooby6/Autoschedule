@@ -86,41 +86,4 @@ form {
     transition: all 0.5s ease;
 }
 
-.form__input:focus {
-    border-bottom-color: #008080;
-    box-shadow: 0 0 5px rgba(0, 80, 80, 0.4);
-    border-radius: 4px;
-}
-
-.btn {
-    transition: all 0.5s ease;
-    width: 70%;
-    border-radius: 30px;
-    color: #008080;
-    font-weight: 600;
-    background-color: #fff;
-    border: 1px solid #008080;
-    margin-top: 1.5em;
-    margin-bottom: 1em;
-}
-
-.btn:hover, .btn:focus {
-    background-color: #008080;
-    color: #fff;
-}
-
-.footer {
-    background: #f1f1f1;
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-.footer a {
-    color: #008080;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
+.form__input:
