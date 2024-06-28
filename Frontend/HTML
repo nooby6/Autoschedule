@@ -1,68 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autoschedule</title>
-    <link rel="stylesheet" href="styles.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Yinka Enoch Adedokun">
+	<title>Login Page</title>
 </head>
 <body>
-    <header>
-        <div class="logo">Autoschedule</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#login">Login</a></li>
-            </ul>
-        </nav>
-        <a href="#login" class="btn">Get Started</a>
-    </header>
-
-    <section id="hero">
-        <h1>Welcome to Autoschedule</h1>
-        <p>Your perfect time management tool</p>
-        <a href="#login" class="btn">Get Started</a>
-    </section>
-
-    <main>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Autoschedule is designed to help you manage your time efficiently and effectively.</p>
-        </section>
-
-        <section id="features">
-            <h2>Features</h2>
-            <ul>
-                <li>Feature 1</li>
-                <li>Feature 2</li>
-                <li>Feature 3</li>
-            </ul>
-        </section>
-    </main>
-
-    <section class="login" id="login">
-        <div class="head">
-            <img src="https://mateuspntx.github.io/templates/login-page/i/telescope.png">
-            <h1 class="company">Autoschedule</h1>
-        </div>
-        <p class="msg">Welcome back</p>
-        <div class="form">
-            <form>
-                <input type="text" placeholder="Username" class="text" id="username" required><br>
-                <input type="password" placeholder="••••••••••••••" class="password"><br>
-                <a href="#" class="btn-login" id="do-login">Login</a>
-                <a href="#" class="forgot">Forgot?</a>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <p>Made with <span class="heart">&hearts;</span> by Whrite(<a href="https://github.com/nooby6">@pxntxs</a>)</p>
-        <p>Gradient: <a href="https://uigradients.com/#Turquoiseflow">https://uigradients.com/#Turquoiseflow</a></p>
-    </footer>
-
-    <script src="script.js"></script>
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<div class="row main-content bg-success text-center">
+			<div class="col-md-4 text-center company__info">
+				<span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
+				<h4 class="company_title">Your Company Logo</h4>
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row">
+						<h2>Log In</h2>
+					</div>
+					<div class="row">
+						<form control="" class="form-group">
+							<div class="row">
+								<input type="text" name="username" id="username" class="form__input" placeholder="Username">
+							</div>
+							<div class="row">
+								<!-- <span class="fa fa-lock"></span> -->
+								<input type="password" name="password" id="password" class="form__input" placeholder="Password">
+							</div>
+							<div class="row">
+								<input type="checkbox" name="remember_me" id="remember_me" class="">
+								<label for="remember_me">Remember Me!</label>
+							</div>
+							<div class="row">
+								<input type="submit" value="Submit" class="btn">
+							</div>
+						</form>
+					</div>
+					<div class="row">
+						<p>Don't have an account? <a href="#">Register Here</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer -->
+	<div class="container-fluid text-center footer">
+		Coded with &hearts; by <a href="https://bit.ly/yinkaenoch">Yinka.</a></p>
+	</div>
 </body>
-</html>
