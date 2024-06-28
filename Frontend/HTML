@@ -3,67 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autoschedule - Time Clock Application</title>
+    <title>Autoschedule</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
+        <div class="logo">Autoschedule</div>
         <nav>
-            <div class="logo">Autoschedule</div>
             <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#login" class="btn">Login</a></li>
-                <li><a href="#signup" class="btn">Sign Up</a></li>
+                <li><a href="#login">Login</a></li>
             </ul>
         </nav>
+        <a href="#login" class="btn">Get Started</a>
     </header>
 
-    <main>
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Welcome to Autoschedule</h1>
-                <p>Efficiently manage employee attendance and streamline your HR processes.</p>
-                <a href="#signup" class="btn">Get Started</a>
-            </div>
-        </section>
+    <section id="hero">
+        <h1>Welcome to Autoschedule</h1>
+        <p>Your perfect time management tool</p>
+        <a href="#login" class="btn">Get Started</a>
+    </section>
 
+    <main>
         <section id="about">
             <h2>About Us</h2>
-            <p>Our Time Clock Application helps you track employee attendance and manage work hours efficiently.</p>
+            <p>Autoschedule is designed to help you manage your time efficiently and effectively.</p>
         </section>
 
         <section id="features">
             <h2>Features</h2>
             <ul>
-                <li>Employee Clock-In and Clock-Out</li>
-                <li>Attendance Reports</li>
-                <li>Easy Integration with Payroll</li>
-                <li>User-friendly Interface</li>
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+                <li>Feature 3</li>
             </ul>
-        </section>
-
-        <section class="login" id="login">
-            <div class="head">
-                <img src="https://mateuspntx.github.io/templates/login-page/i/telescope.png" alt="Telescope">
-                <h1 class="company">Autoschedule</h1>
-            </div>
-            <p class="msg">Welcome back</p>
-            <div class="form">
-                <form>
-                    <input type="text" placeholder="Username" class="text" id="username" required><br>
-                    <input type="password" placeholder="••••••••••••••" class="password"><br>
-                    <a href="#" class="btn-login" id="do-login">Login</a>
-                    <a href="#" class="forgot">Forgot?</a>
-                </form>
-            </div>
         </section>
     </main>
 
+    <section class="login" id="login">
+        <div class="head">
+            <img src="https://mateuspntx.github.io/templates/login-page/i/telescope.png">
+            <h1 class="company">Autoschedule</h1>
+        </div>
+        <p class="msg">Welcome back</p>
+        <div class="form">
+            <form>
+                <input type="text" placeholder="Username" class="text" id="username" required><br>
+                <input type="password" placeholder="••••••••••••••" class="password"><br>
+                <a href="#" class="btn-login" id="do-login">Login</a>
+                <a href="#" class="forgot">Forgot?</a>
+            </form>
+        </div>
+    </section>
+
     <footer>
-        <p>Made with <span class="heart">&hearts;</span> by Whrite (<a href="https://github.com/nooby6">@pxntxs</a>)</p>
+        <p>Made with <span class="heart">&hearts;</span> by Whrite(<a href="https://github.com/nooby6">@pxntxs</a>)</p>
         <p>Gradient: <a href="https://uigradients.com/#Turquoiseflow">https://uigradients.com/#Turquoiseflow</a></p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
