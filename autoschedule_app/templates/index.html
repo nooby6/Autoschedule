@@ -10,9 +10,9 @@
     <header>
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('sign up') }}">Sign Up</a></li>
             </ul>
         </nav>
     </header>
@@ -23,6 +23,7 @@
                 <div class="container">
                     <div class="logo">
                         <img src="/static/assets/Autoschedule_logo-final.png" alt="Logo">
+                    </div>
                     <ul class="links">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About Us</a></li>
@@ -37,10 +38,10 @@
                     <div class="info">
                         <h1>Looking For Inspiration</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus odit nihil ullam nesciunt quidem iste, Repellendus odit nihil</p>
-                        <button>Button name</button>
+                        <button>Login</button>
                     </div>
                     <div class="image">
-                        <img src="https://i.postimg.cc/65QxYYzh/001234.png" alt="Inspiration Image">
+                        <img src="/static/assets/autoschedule banner.jpg" alt="Inspiration Image">
                     </div>
                 </div>
             </div>
