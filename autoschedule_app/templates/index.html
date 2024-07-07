@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - AutoSchedule</title>
+    <title>AutoSchedule - Employee Attendance Monitor</title>
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
@@ -15,20 +15,36 @@
                 <li><a href="/signup">Sign Up</a></li>
             </ul>
         </nav>
-        <h1>Login to AutoSchedule</h1>
     </header>
     <main>
-        <form action="/login" method="post" class="login-form">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+        <!-- Start Landing Page -->
+        <div class="landing-page">
+            <header>
+                <div class="container">
+                    <a href="#" class="logo">Auto<b>Schedule</b></a>
+                    <ul class="links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Work</a></li>
+                        <li><a href="#">Info</a></li>
+                        <li><a href="#">Get Started</a></li>
+                    </ul>
+                </div>
+            </header>
+            <div class="content">
+                <div class="container">
+                    <div class="info">
+                        <h1>Looking For Inspiration</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus odit nihil ullam nesciunt quidem iste, Repellendus odit nihil</p>
+                        <button>Button name</button>
+                    </div>
+                    <div class="image">
+                        <img src="https://i.postimg.cc/65QxYYzh/001234.png" alt="Inspiration Image">
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="cta-button">Login</button>
-        </form>
+        </div>
+        <!-- End Landing Page -->
     </main>
     <footer>
         <p>&copy; 2024 AutoSchedule. All rights reserved.</p>
