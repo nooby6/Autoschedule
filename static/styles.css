@@ -1,3 +1,5 @@
+/* Existing styles */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,107 +8,114 @@ body {
     color: #333;
 }
 
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-nav ul {
+header nav ul {
     list-style: none;
     padding: 0;
 }
 
-nav ul li {
+header nav ul li {
     display: inline;
     margin: 0 10px;
 }
 
-nav ul li a {
-    color: white;
+header nav ul li a {
+    color: #333;
     text-decoration: none;
 }
 
-.cta-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    color: white;
-    background-color: #333;
-    text-decoration: none;
-    border-radius: 5px;
+.landing-page {
+    background: #e3e3e3;
 }
 
-.cta-button:hover {
-    background-color: #555;
+.landing-page header {
+    background: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-main {
-    padding: 20px;
-}
-
-.features {
+.landing-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.feature {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 30%;
-    text-align: center;
+.landing-page .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+.landing-page .logo b {
+    color: #4CAF50;
 }
 
-/* Existing styles */
-
-.login-form {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.landing-page .links {
+    list-style: none;
+    display: flex;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.landing-page .links li {
+    margin: 0 10px;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
+.landing-page .links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
+.landing-page .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 70px);
+    background: #4CAF50;
+    color: #fff;
 }
 
-.login-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
+.landing-page .content .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.landing-page .content .info {
+    max-width: 500px;
+}
+
+.landing-page .content .info h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.landing-page .content .info p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.landing-page .content .info button {
+    background: #333;
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
-.login-form button:hover {
-    background-color: #45a049;
+.landing-page .content .info button:hover {
+    background: #555;
 }
+
+.landing-page .content .image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Other existing styles */
