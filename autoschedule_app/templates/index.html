@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoSchedule - Employee Attendance Monitor</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
             </ul>
         </nav>
     </header>
@@ -21,7 +21,9 @@
         <div class="landing-page">
             <header>
                 <div class="container">
-                    <a href="#" class="logo">Auto<b>Schedule</b></a>
+                    <div class="logo">
+                        <img src="{{ url_for('static', filename='assets/Autoschedule_logo-final.png') }}" alt="Logo">
+                    </div>
                     <ul class="links">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About Us</a></li>
@@ -36,10 +38,10 @@
                     <div class="info">
                         <h1>Looking For Inspiration</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus odit nihil ullam nesciunt quidem iste, Repellendus odit nihil</p>
-                        <button>Button name</button>
+                        <button>Login</button>
                     </div>
                     <div class="image">
-                        <img src="https://i.postimg.cc/65QxYYzh/001234.png" alt="Inspiration Image">
+                        <img src="{{ url_for('static', filename='assets/autoschedule_banner.jpg') }}" alt="Inspiration Image">
                     </div>
                 </div>
             </div>
