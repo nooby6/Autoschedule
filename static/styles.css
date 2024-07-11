@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    background: transparent;
+    background: rgba(0, 0, 0, 0.5);
     padding: 20px 0;
     position: fixed;
     width: 100%;
@@ -30,8 +30,8 @@ header nav ul {
 }
 
 header nav ul li a {
-    color: #333;
-    text-decoration: bold;
+    color: #fff;
+    text-decoration: none;
     font-weight: 500;
     padding: 10px 20px;
     transition: background 0.3s;
@@ -39,15 +39,14 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    background: rgba(111, 148, 241, 0.526);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
-    border-color: #6f94f1;
 }
 
 .logo-container {
     text-align: center;
-    margin-top: 100px; /* Adjust this value to move the logo closer/further from the landing page */
-    margin-bottom: -100px; /* Adjust this value to move the logo closer/further from the landing page */
+    margin-top: 50px; /* Adjust this value to move the logo closer/further from the landing page */
+    margin-bottom: -20px; /* Adjust this value to move the logo closer/further from the landing page */
 }
 
 .logo-container img {
@@ -67,7 +66,7 @@ header nav ul li a:hover {
 }
 
 .landing-page .overlay {
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    background: rgba(55, 54, 54, 0.5); /* Dark overlay */
     width: 100%;
     height: 100%;
     display: flex;
@@ -89,7 +88,6 @@ header nav ul li a:hover {
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
-
 }
 
 .landing-page .links li a {
@@ -145,7 +143,7 @@ footer {
     padding: 20px 0;
     background: #333;
     color: #fff;
-    position: flex;
+    position: fixed;
     width: 100%;
     bottom: 0;
     height: 50px;
