@@ -55,7 +55,7 @@ header nav ul li a:hover {
 }
 
 .landing-page {
-    background: url('/static/assets/autoschedule_banner.jpg') no-repeat center center;
+    background: url('/static/assets/autoschedule\ banner.jpg') no-repeat center center;
     background-size: cover;
     display: flex;
     justify-content: center;
