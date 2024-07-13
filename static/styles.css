@@ -207,13 +207,12 @@ header nav ul li a:hover {
 /* Work Section */
 .work-section {
     display: flex;
-    background: ;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 150px 20px;
-    background: url('/static/assets/burnout1.jpg') no-repeat center center;
-    background-size: fixed;
+    background: url('/static/assets/burnout1.jpg') no-repeat fixed center center;
+    background-size: cover;
 }
 
 .work-container {
