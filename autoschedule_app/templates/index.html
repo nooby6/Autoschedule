@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoSchedule - Home</title>
+    <title>AutoSchedule</title>
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about_us.html">About Us</a></li>
-                <li><a href="work.html">Work</a></li>
-                <li><a href="info.html">Info</a></li>
-                <li><a href="get_started.html">Get Started</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#info">Info</a></li>
+                <li><a href="#get-started">Get Started</a></li>
             </ul>
         </nav>
     </header>
+    
     <main>
-        <div class="landing-page">
+        <section id="home" class="landing-page">
             <div class="overlay">
                 <div class="container">
                     <div class="logo-container">
@@ -30,17 +29,99 @@
                     <div class="content">
                         <h1>Welcome to AutoSchedule</h1>
                         <p>Your ultimate solution for effortless shift management in healthcare.</p>
-                        <a href="get_started.html"><button>Get Started</button></a>
+                        <a href="#get-started"><button>Get Started</button></a>
                     </div>
                     <ul class="links">
-                        <li><a href="about_us.html">About Us</a></li>
-                        <li><a href="work.html">Our Work</a></li>
-                        <li><a href="info.html">Information</a></li>
+                        <li><a href="#about-us">About Us</a></li>
+                        <li><a href="#work">Our Work</a></li>
+                        <li><a href="#info">Information</a></li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section id="about-us" class="about-page">
+            <div class="about-container">
+                <h2>About Us</h2>
+                <p>AutoSchedule is dedicated to simplifying the complexities of shift management in the healthcare sector. Our platform is designed to ensure efficiency, accuracy, and ease of use for healthcare professionals.</p>
+                <h2>Meet the Founders</h2>
+                <div class="founder">
+                    <img src="/static/assets/founder1.jpg" alt="Founder 1">
+                    <div>
+                        <h4>John Doe</h4>
+                        <p>Co-Founder & CEO</p>
+                    </div>
+                </div>
+                <div class="founder">
+                    <img src="/static/assets/founder2.jpg" alt="Founder 2">
+                    <div>
+                        <h4>Jane Smith</h4>
+                        <p>Co-Founder & CTO</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="work-section">
+            <div class="container">
+                <h2>Our Work</h2>
+                <h3>Empowering Nurses with AutoSchedule</h3>
+                <p>At AutoSchedule, we understand the challenges nurses face in managing their busy schedules. That's why we created AutoSchedule, a mobile app designed to streamline the process and give nurses back control of their time.</p>
+                
+                <h4>Streamlined Scheduling:</h4>
+                <ul>
+                    <li><strong>Effortless Availability Management:</strong> Easily input your availability preferences, including desired hours, preferred days off, and blackout dates, all within a user-friendly interface.</li>
+                    <li><strong>Shift Visibility at Your Fingertips:</strong> Browse open shifts posted by managers, with clear details like date, time, and unit. No more scrambling for the latest schedule updates.</li>
+                    <li><strong>Seamless Shift Claiming:</strong> Claim shifts that fit your needs with a single tap. Reduce the time spent on back-and-forth communication or missed opportunities.</li>
+                    <li><strong>Improved Communication:</strong> Communicate directly with managers regarding shift changes or questions through a built-in chat functionality. Foster a more collaborative scheduling environment.</li>
+                </ul>
+
+                <h4>Beyond AutoSchedule: Our Commitment to Healthcare</h4>
+                <p>AutoSchedule is just the beginning of our commitment to improving the lives of healthcare professionals. We're constantly exploring new ways to optimize workflows and empower those at the forefront of patient care.</p>
+                <p>Stay tuned for future innovations designed to:</p>
+                <ul>
+                    <li>Reduce administrative burdens for nurses and healthcare facilities.</li>
+                    <li>Enhance staff satisfaction through improved scheduling flexibility.</li>
+                    <li>Optimize staffing levels to ensure adequate patient care.</li>
+                </ul>
+                <p>Join us in building a better future for healthcare!</p>
+
+                <h4>Additional elements to consider:</h4>
+                <ul>
+                    <li><strong>Visuals:</strong> Include screenshots showcasing the AutoSchedule app's user interface or infographics highlighting the benefits for nurses.</li>
+                    <li><strong>Testimonials:</strong> Feature quotes from nurses who have used AutoSchedule and how it has improved their work experience.</li>
+                    <li><strong>Call to Action:</strong> Encourage visitors to download the app, learn more about your company, or contact you for further information.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="info" class="info-section">
+            <div class="container">
+                <h2>Information</h2>
+                <p>Get all the information you need about AutoSchedule. Learn about our features, pricing plans, and how to get started.</p>
+                <!-- Add sections on features, pricing, FAQs, etc. -->
+            </div>
+        </section>
+
+        <section id="get-started" class="form-page">
+            <div class="form-container">
+                <h2>Get Started</h2>
+                <form>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </section>
     </main>
+    
     <footer>
         <p>&copy; 2024 AutoSchedule. All rights reserved.</p>
     </footer>
