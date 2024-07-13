@@ -273,6 +273,7 @@ header nav ul li a:hover {
     align-items: center;
     height: 100vh;
     padding: 80px 20px;
+    background: url('/static/assets/pexels-christian-heitz-842711.jpg') no-repeat center center;
 }
 
 .form-container {
