@@ -186,8 +186,8 @@ header nav ul li a:hover {
     border-radius: 10%;
     width: 100px;
     height: 100px;
-    margin-right: 20px;
-    border: 2px solid #eee;
+    margin-right: 30px;
+    border: 5px solid #fff;
     align-items: center;
 }
 
@@ -201,15 +201,19 @@ header nav ul li a:hover {
     margin: 0;
     font-size: 16px;
     color: #666;
+    align-items: center;
 }
 
 /* Work Section */
 .work-section {
     display: flex;
+    background: ;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 80px 20px;
+    padding: 150px 20px;
+    background: url('/static/assets/burnout1.jpg') no-repeat center center;
+    background-size: fixed;
 }
 
 .work-container {
@@ -274,6 +278,7 @@ header nav ul li a:hover {
     height: 100vh;
     padding: 80px 20px;
     background: url('/static/assets/pexels-christian-heitz-842711.jpg') no-repeat center center;
+    background-size: cover;
 }
 
 .form-container {
