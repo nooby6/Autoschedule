@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 /* Global Styles */
-
 :root {
     --primary-color: #333;
     --secondary-color: #fff;
@@ -18,8 +17,8 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--light-color);
+    color: var(--dark-color);
     line-height: 1.6;
 }
 
@@ -36,15 +35,15 @@ header {
 
 header nav ul {
     list-style: none;
-    padding: 2px;
-    margin: 2px;
+    padding: 0;
+    margin: 0;
     display: flex;
     justify-content: flex-end;
     gap: 15px;
 }
 
 header nav ul li a {
-    color: #fff;
+    color: var(--secondary-color);
     text-decoration: none;
     font-weight: 500;
     padding: 10px 20px;
@@ -54,8 +53,6 @@ header nav ul li a {
 
 header nav ul li a:hover {
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    color: #fff;
 }
 
 .logo-container {
@@ -69,15 +66,18 @@ header nav ul li a:hover {
     height: auto;
 }
 
-.landing-page {
-    background: url('/static/assets/autoschedule\ banner.jpg') no-repeat center center;
-    background-size: cover;
+.landing-page, .about, .work-section, .info-section, .form-page {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #fff;
     text-align: center;
+}
+
+.landing-page {
+    background: url('/static/assets/autoschedule/banner.jpg') no-repeat center center;
+    background-size: cover;
+    color: var(--secondary-color);
 }
 
 .landing-page .overlay {
@@ -106,15 +106,13 @@ header nav ul li a:hover {
 }
 
 .landing-page .links li a {
-    color: #fff;
+    color: var(--secondary-color);
     text-decoration: none;
     font-size: 18px;
     transition: color 0.3s;
     border-radius: 5px;
-    border-color: #fff;
-    border-width: 1px;
+    border: 1px solid var(--secondary-color);
     padding: 10px 20px;
-    border-style: solid;
 }
 
 .landing-page .links li a:hover {
@@ -139,8 +137,8 @@ header nav ul li a:hover {
 }
 
 .landing-page .content button {
-    background: #333;
-    color: #fff;
+    background: var(--primary-color);
+    color: var(--secondary-color);
     border: none;
     padding: 15px 30px;
     font-size: 16px;
@@ -152,160 +150,63 @@ header nav ul li a:hover {
 .landing-page .content button:hover {
     background: #555;
 }
+
 /* About */
-.about {
+.about, .form-page {
     background: url('/static/assets/pexels-christian-heitz-842711.jpg') no-repeat center center;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #fff;
+    color: var(--secondary-color);
+}
+
+.about-container, .form-container, .work-container, .info-container {
+    background: var(--secondary-color);
+    padding: 40px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 800px;
+    width: 100%;
     text-align: center;
 }
 
-.about-container h2 {
+.about-container h2, .work-container h2, .info-container h2, .form-container h2 {
     margin-bottom: 20px;
     font-size: 28px;
-    color: #333;
+    color: var(--dark-color);
 }
 
-.about-container p {
+.about-container p, .work-container p, .info-container p, .form-container p {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #666;
+    color: var(--dark-color);
 }
 
 .founder {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 .founder img {
-    border-radius: 10%;
+    border-radius: 50%;
     width: 100px;
     height: 100px;
-    margin-right: 30px;
-    border: 5px solid #fff;
-    align-items: center;
+    margin-right: 20px;
+    border: 5px solid var(--secondary-color);
 }
 
 .founder h4 {
     margin-bottom: 10px;
     font-size: 20px;
-    color: #333;
+    color: var(--dark-color);
 }
 
 .founder p {
     margin: 0;
     font-size: 16px;
-    color: #666;
-    align-items: center;
+    color: var(--dark-color);
 }
-
-/* Work Section */
-.work-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 150px 20px;
-    background: url('/static/assets/burnout1.jpg') no-repeat fixed center center;
-    background-size: cover;
-}
-
-.work-container {
-    background: #fff;
-    padding: 40px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
-}
-
-.work-container h2 {
-    margin-bottom: 20px;
-    font-size: 28px;
-    color: #333;
-}
-
-.work-container p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #666;
-}
-
-/* Info Section */
-.info-section {
-    background: url('/static/assets/burnout1.jpg') no-repeat fixed center center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 80px 20px;
-}
-
-.info-container {
-    background: #fff;
-    padding: 40px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
-}
-
-.info-container h2 {
-    margin-bottom: 20px;
-    font-size: 28px;
-    color: #333;
-}
-
-.info-container p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #666;
-}
-
 
 /* Form Page Styles */
-.form-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 80px 20px;
-    background: url('/static/assets/pexels-christian-heitz-842711.jpg') no-repeat center center;
-    background-size: cover;
-}
-
-.form-container {
-    background: #fff;
-    padding: 40px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center;
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
-}
-
-.form-container h2 {
-    margin-bottom: 20px;
-    font-size: 20px;
-    color: #333;
-}
-
-.form-container p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #666;
-}
-
 .form-container form {
     display: flex;
     flex-direction: column;
@@ -314,7 +215,6 @@ header nav ul li a:hover {
 
 .form-container label {
     font-weight: bold;
-    
 }
 
 .form-container input {
@@ -325,8 +225,8 @@ header nav ul li a:hover {
 }
 
 .form-container button {
-    background: #333;
-    color: #fff;
+    background: var(--primary-color);
+    color: var(--secondary-color);
     border: none;
     padding: 15px;
     font-size: 16px;
@@ -339,115 +239,11 @@ header nav ul li a:hover {
     background: #555;
 }
 
-.about-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-}
-
-.about-container {
-    background: #fff;
-    padding: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    text-align: center;
-    max-width: 800px;
-}
-
-.about-container h2 {
-    margin-bottom: 20px;
-}
-
-.about-container p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.founder {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.founder img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
-}
-
-.founder h4 {
-    margin-bottom: 10px;
-}
-
-.founder p {
-    margin: 0;
-}
-
-/* Work Section Styles */
-.work-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-}
-
-.work-section .container {
-    background: #fff;
-    padding: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    text-align: center;
-    max-width: 800px;
-}
-
-.work-section h2 {
-    margin-bottom: 20px;
-}
-
-.work-section p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-/* Info Section Styles */
-.info-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-}
-
-.info-section .container {
-    background: #fff;
-    padding: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    text-align: center;
-    max-width: 800px;
-}
-
-.info-section h2 {
-    margin-bottom: 20px;
-}
-
-.info-section p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
 /* Footer Styles */
 footer {
     text-align: center;
     padding: 20px 0;
-    background: #333;
-    color: #fff;
-    position: static;
+    background: var(--primary-color);
+    color: var(--secondary-color);
     width: 100%;
-    bottom: 0;
-    height: 50px;
 }
