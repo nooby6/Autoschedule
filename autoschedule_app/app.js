@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 let users = [
     { name: "Regular User", email: "user@example.com", password: "password", isAdmin: false },
-    { name: "Admin User", email: "admin@example.com", password: "adminpassword", isAdmin: true }
+    { name: "Admin User", email: "admin@admin.com", password: "adminpassword", isAdmin: true }
 ];
 
 // Function to handle sign up form submission
