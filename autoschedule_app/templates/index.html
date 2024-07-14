@@ -11,7 +11,6 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                
                 <li><a href="#SignUp">Sign Up</a></li>
                 <li><a href="#LogIn">Log In</a></li>
             </ul>
@@ -112,10 +111,77 @@
                 </form>
             </div>
         </section>
+
+        <!-- Dashboard Section (Visible after login) -->
+        <section id="dashboard" class="dashboard-page" style="display:none;">
+            <div class="container">
+                <h2>Dashboard</h2>
+                <div class="overview">
+                    <p>Welcome, <span id="user-name">User</span></p>
+                    <p>Next shift: <span id="next-shift">None</span></p>
+                </div>
+                <div class="actions">
+                    <button onclick="showSection('schedule')">View Schedule</button>
+                    <button onclick="showSection('profile')">User Profile</button>
+                    <button onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Management Section -->
+        <section id="schedule" class="schedule-page" style="display:none;">
+            <div class="container">
+                <h2>Manage Schedule</h2>
+                <div class="schedule-list">
+                    <!-- Schedule items will be populated here -->
+                </div>
+                <button onclick="showSection('add-shift')">Add Shift</button>
+                <button onclick="showSection('dashboard')">Back to Dashboard</button>
+            </div>
+        </section>
+
+        <!-- Add Shift Section -->
+        <section id="add-shift" class="add-shift-page" style="display:none;">
+            <div class="container">
+                <h2>Add New Shift</h2>
+                <form id="add-shift-form">
+                    <label for="shift-date">Date</label>
+                    <input type="date" id="shift-date" name="shift-date" required>
+                    
+                    <label for="shift-time">Time</label>
+                    <input type="time" id="shift-time" name="shift-time" required>
+                    
+                    <label for="shift-unit">Unit</label>
+                    <input type="text" id="shift-unit" name="shift-unit" required>
+                    
+                    <button type="submit">Add Shift</button>
+                </form>
+                <button onclick="showSection('schedule')">Back to Schedule</button>
+            </div>
+        </section>
+
+        <!-- User Profile Section -->
+        <section id="profile" class="profile-page" style="display:none;">
+            <div class="container">
+                <h2>User Profile</h2>
+                <form id="profile-form">
+                    <label for="profile-name">Name</label>
+                    <input type="text" id="profile-name" name="profile-name" required>
+                    
+                    <label for="profile-email">Email</label>
+                    <input type="email" id="profile-email" name="profile-email" required>
+                    
+                    <button type="submit">Save</button>
+                </form>
+                <button onclick="showSection('dashboard')">Back to Dashboard</button>
+            </div>
+        </section>
     </main>
-    <script src="app.js"></script>
+    
     <footer>
         <p>&copy; 2024 AutoSchedule. All rights reserved.</p>
     </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
