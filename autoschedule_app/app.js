@@ -1,26 +1,19 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Handle sign up form submission
+    // Event listener for sign up form submission
     document.getElementById("signup-form").addEventListener("submit", function(event) {
-        event.preventDefault();
-        signup();
+        event.preventDefault(); // Prevent default form submission
+        signup(); // Call signup function to handle form data
     });
 
-    // Handle login form submission
+    // Event listener for login form submission
     document.getElementById("login-form").addEventListener("submit", function(event) {
-        event.preventDefault();
-        login();
+        event.preventDefault(); // Prevent default form submission
+        login(); // Call login function to handle form data
     });
 
-    // Handle add shift form submission
-    document.getElementById("add-shift-form").addEventListener("submit", function(event) {
-        event.preventDefault();
-        addShift();
-    });
-
-    // Handle profile form submission
-    document.getElementById("profile-form").addEventListener("submit", function(event) {
-        event.preventDefault();
-        saveProfile();
+    // Event listener for logout button (assumed to be in the dashboard)
+    document.getElementById("logout-btn").addEventListener("click", function() {
+        logout(); // Call logout function to handle logout
     });
 });
 
@@ -29,6 +22,7 @@ let users = [
     { name: "Admin User", email: "admin@example.com", password: "adminpassword", isAdmin: true }
 ];
 
+// Function to handle sign up form submission
 function signup() {
     const name = document.getElementById("signup-name").value;
     const email = document.getElementById("signup-email").value;
@@ -38,12 +32,13 @@ function signup() {
     if (name && email && password) {
         users.push({ name, email, password, isAdmin: false }); // Assuming new signups are regular users
         alert("Sign up successful!");
-        showSection('login');
+        showSection('login'); // Show login section after successful signup
     } else {
         alert("Please fill out all fields.");
     }
 }
 
+// Function to handle login form submission
 function login() {
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
@@ -54,36 +49,26 @@ function login() {
         if (user.isAdmin) {
             // Admin login
             document.getElementById("user-name").innerText = user.name + " (Admin)";
-            showSection('admin-dashboard');
+            showSection('dashboard'); // Display admin dashboard
         } else {
             // Regular user login
             document.getElementById("user-name").innerText = user.name;
-            showSection('dashboard');
+            showSection('dashboard'); // Display regular user dashboard
         }
     } else {
         alert("Invalid email or password.");
     }
 }
 
+// Function to handle logout
 function logout() {
-    showSection('home');
+    showSection('home'); // Show home section after logout
 }
 
+// Function to dynamically show/hide sections
 function showSection(sectionId) {
     const sections = document.querySelectorAll("main > section");
     sections.forEach(section => {
         section.style.display = section.id === sectionId ? 'block' : 'none';
     });
-}
-
-function addShift() {
-    // Add shift logic
-    alert("Shift added!");
-    showSection('schedule');
-}
-
-function saveProfile() {
-    // Save profile logic
-    alert("Profile updated!");
-    showSection('dashboard');
 }
