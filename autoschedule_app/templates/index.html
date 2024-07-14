@@ -10,9 +10,9 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#signup">Sign Up</a></li>
-                <li><a href="#login">Log In</a></li>
+                <li><a href="#home" id="nav-home">Home</a></li>
+                <li><a href="#signup" id="nav-signup">Sign Up</a></li>
+                <li><a href="#login" id="nav-login">Log In</a></li>
             </ul>
         </nav>
     </header>
@@ -38,7 +38,7 @@
             </div>
         </section>
 
-        <section id="about-us" class="about-page">
+        <section id="about-us" class="about-page" style="display:none;">
             <div class="about-container">
                 <h2>About Us</h2>
                 <p>AutoSchedule is dedicated to simplifying the complexities of shift management in the healthcare sector. Our platform is designed to ensure efficiency, accuracy, and ease of use for healthcare professionals.</p>
@@ -60,7 +60,7 @@
             </div>
         </section>
 
-        <section id="work" class="work-section">
+        <section id="work" class="work-section" style="display:none;">
             <div class="container">
                 <h2>Our Work</h2>
                 <h3>Empowering Nurses with AutoSchedule</h3>
@@ -86,7 +86,7 @@
             </div>
         </section>
 
-        <section id="info" class="info-section">
+        <section id="info" class="info-section" style="display:none;">
             <div class="container">
                 <h2>Information</h2>
                 <p>Get all the information you need about AutoSchedule. Learn about our features, pricing plans, and how to get started.</p>
@@ -94,7 +94,7 @@
             </div>
         </section>
 
-        <section id="get-started" class="form-page">
+        <section id="get-started" class="form-page" style="display:none;">
             <div class="form-container">
                 <h2>Get Started</h2>
                 <form>
@@ -216,6 +216,39 @@
     <footer>
         <p>&copy; 2024 AutoSchedule. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function showSection(sectionId) {
+                const sections = document.querySelectorAll('section');
+                sections.forEach(section => {
+                    if (section.id === sectionId) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            }
+
+            document.getElementById('nav-home').addEventListener('click', function (e) {
+                e.preventDefault();
+                showSection('home');
+            });
+
+            document.getElementById('nav-signup').addEventListener('click', function (e) {
+                e.preventDefault();
+                showSection('signup');
+            });
+
+            document.getElementById('nav-login').addEventListener('click', function (e) {
+                e.preventDefault();
+                showSection('login');
+            });
+
+            // Show the home section by default
+            showSection('home');
+        });
+    </script>
 
     <script src="/autoschedule_app/app.js"></script>
 </body>
