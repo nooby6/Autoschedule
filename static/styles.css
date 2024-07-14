@@ -75,7 +75,7 @@ header nav ul li a:hover {
 }
 
 .landing-page {
-    background: url('/static/assets/autoschedule/banner.jpg') no-repeat center center;
+    background: url('/static/assets/autoschedule\ banner.jpg') no-repeat center center;
     background-size: cover;
     color: var(--secondary-color);
 }
