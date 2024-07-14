@@ -24,7 +24,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-let users = [];
+let users = [
+    { name: "Regular User", email: "user@example.com", password: "password", isAdmin: false },
+    { name: "Admin User", email: "admin@example.com", password: "adminpassword", isAdmin: true }
+];
 
 function signup() {
     const name = document.getElementById("signup-name").value;
@@ -33,7 +36,7 @@ function signup() {
 
     // Simple validation and user creation (in-memory, not persistent)
     if (name && email && password) {
-        users.push({ name, email, password });
+        users.push({ name, email, password, isAdmin: false }); // Assuming new signups are regular users
         alert("Sign up successful!");
         showSection('login');
     } else {
@@ -48,9 +51,15 @@ function login() {
     const user = users.find(user => user.email === email && user.password === password);
 
     if (user) {
-        // Simulate user login and show dashboard
-        document.getElementById("user-name").innerText = user.name;
-        showSection('dashboard');
+        if (user.isAdmin) {
+            // Admin login
+            document.getElementById("user-name").innerText = user.name + " (Admin)";
+            showSection('admin-dashboard');
+        } else {
+            // Regular user login
+            document.getElementById("user-name").innerText = user.name;
+            showSection('dashboard');
+        }
     } else {
         alert("Invalid email or password.");
     }
