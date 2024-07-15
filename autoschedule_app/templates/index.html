@@ -27,12 +27,12 @@
                     <div class="content">
                         <h1>Welcome to AutoSchedule</h1>
                         <p>Your ultimate solution for effortless shift management in healthcare.</p>
-                        <a href="#get-started"><button>Get Started</button></a>
+                        <button onclick="showSection('signup')">Get Started</button>
                     </div>
                     <ul class="links">
-                        <li><a href="#about-us">About Us</a></li>
-                        <li><a href="#work">Our Work</a></li>
-                        <li><a href="#info">Information</a></li>
+                        <li><a href="#about-us" onclick="showSection('about-us')">About Us</a></li>
+                        <li><a href="#work" onclick="showSection('work')">Our Work</a></li>
+                        <li><a href="#info" onclick="showSection('info')">Information</a></li>
                     </ul>
                 </div>
             </div>
@@ -158,7 +158,7 @@
                 <div class="actions">
                     <button onclick="showSection('schedule')">View Schedule</button>
                     <button onclick="showSection('profile')">User Profile</button>
-                    <button onclick="logout()">Logout</button>
+                    <button id="logout-btn">Logout</button>
                 </div>
             </div>
         </section>
@@ -247,6 +247,16 @@
 
             // Show the home section by default
             showSection('home');
+        });
+
+        function logout() {
+            // Placeholder for logout functionality
+            alert('Logged out');
+            showSection('home');
+        }
+
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            logout();
         });
     </script>
 
