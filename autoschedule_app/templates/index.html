@@ -150,27 +150,30 @@
         </section>
 
         <!-- Dashboard Section (Visible after login) -->
-        <section id="dashboard" class="dashboard-page" style="display:none;">
-            <div class="sidebar">
-                <h2>Navigation</h2>
-                <a href="#schedule" onclick="showSection('schedule')">View Schedule</a>
-                <a href="#profile" onclick="showSection('profile')">User Profile</a>
-                <button id="logout-btn" class="button">Logout</button>
-            </div>
-            <div class="main-content">
-                <h2>Dashboard</h2>
-                <div class="overview card">
-                    <p>Welcome, <span id="user-name">User</span></p>
-                    <p>Next shift: <span id="next-shift">None</span></p>
-                </div>
-                <div class="calendar card">
-                    <div id="calendar"></div>
-                <div class="actions">
-                    <button onclick="showSection('schedule')" class="button">Manage Schedule</button>
-                    <button onclick="showSection('profile')" class="button">Edit Profile</button>
-                </div>
-            </div>
-        </section>        
+       <!-- Dashboard Section (Visible after login) -->
+<section id="dashboard" class="dashboard-page" style="display:none;">
+    <div class="sidebar">
+        <h2>Navigation</h2>
+        <a href="#schedule" onclick="showSection('schedule')">View Schedule</a>
+        <a href="#profile" onclick="showSection('profile')">User Profile</a>
+        <button id="logout-btn" class="button">Logout</button>
+    </div>
+    <div class="main-content">
+        <h2>Dashboard</h2>
+        <div class="overview card">
+            <p>Welcome, <span id="user-name">User</span></p>
+            <p>Next shift: <span id="next-shift">None</span></p>
+        </div>
+        <div class="calendar card">
+            <div id="calendar"></div>
+        </div>
+        <div class="actions">
+            <button onclick="showSection('schedule')" class="button">Manage Schedule</button>
+            <button onclick="showSection('profile')" class="button">Edit Profile</button>
+        </div>
+    </div>
+</section>
+   
 
         <!-- Schedule Management Section -->
         <section id="schedule" class="schedule-page" style="display:none;">
