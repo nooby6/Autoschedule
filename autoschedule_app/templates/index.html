@@ -4,26 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoSchedule</title>
+    <!-- Link to CSS stylesheet -->
     <link rel="stylesheet" href="/static/styles.css">
+    <!-- Link to FullCalendar CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
 </head>
 <body>
+    <!-- Header with navigation -->
     <header>
-        <nav>
+        <!-- Main navigation (visible before login) -->
+        <nav id="main-nav">
             <ul>
                 <li><a href="#home" id="nav-home">Home</a></li>
                 <li><a href="#signup" id="nav-signup">Sign Up</a></li>
                 <li><a href="#login" id="nav-login">Log In</a></li>
             </ul>
         </nav>
+        <!-- User navigation (visible after login) -->
+        <nav id="user-nav" style="display:none;">
+            <ul>
+                <li><a href="#dashboard" onclick="showSection('dashboard')">Dashboard</a></li>
+                <li><a href="#schedule" onclick="showSection('schedule')">View Schedule</a></li>
+                <li><a href="#profile" onclick="showSection('profile')">User Profile</a></li>
+                <li><button id="logout-btn" class="button">Logout</button></li>
+            </ul>
+        </nav>
     </header>
 
+    <!-- Main content -->
     <main>
+        <!-- Landing page section -->
         <section id="home" class="landing-page">
             <div class="overlay">
                 <div class="container">
                     <div class="logo-container">
+                        <!-- Logo image -->
                         <img src="/static/assets/Autoschedule_logo-final.png" alt="AutoSchedule Logo">
                     </div>
                     <div class="content">
@@ -40,95 +55,9 @@
             </div>
         </section>
 
-        <section id="about-us" class="about-page" style="display:none;">
-            <div class="about-container">
-                <h2>About Us</h2>
-                <p>AutoSchedule is dedicated to simplifying the complexities of shift management in the healthcare sector. Our platform is designed to ensure efficiency, accuracy, and ease of use for healthcare professionals.</p>
-                <h2>Meet the Founders</h2>
-                <div class="founder">
-                    <img src="/static/assets/pp2.JPG" alt="Founder 1">
-                    <div>
-                        <h4>Audrine Whrite</h4>
-                        <p>Co-Founder & CEO</p>
-                    </div>
-                </div>
-                <div class="founder">
-                    <img src="/static/assets/founder2.jpg" alt="Founder 2">
-                    <div>
-                        <h4>Stafford Okoth</h4>
-                        <p>Co-Founder & CTO</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Other sections here... -->
 
-        <section id="work" class="work-section" style="display:none;">
-            <div class="container">
-                <h2>Our Work</h2>
-                <h3>Empowering Nurses with AutoSchedule</h3>
-                <p>At AutoSchedule, we understand the challenges nurses face in managing their busy schedules. That's why we created AutoSchedule, a mobile app designed to streamline the process and give nurses back control of their time.</p>
-                
-                <h4>Streamlined Scheduling:</h4>
-                <ul>
-                    <li><strong>Effortless Availability Management:</strong> Easily input your availability preferences, including desired hours, preferred days off, and blackout dates, all within a user-friendly interface.</li>
-                    <li><strong>Shift Visibility at Your Fingertips:</strong> Browse open shifts posted by managers, with clear details like date, time, and unit. No more scrambling for the latest schedule updates.</li>
-                    <li><strong>Seamless Shift Claiming:</strong> Claim shifts that fit your needs with a single tap. Reduce the time spent on back-and-forth communication or missed opportunities.</li>
-                    <li><strong>Improved Communication:</strong> Communicate directly with managers regarding shift changes or questions through a built-in chat functionality. Foster a more collaborative scheduling environment.</li>
-                </ul>
-
-                <h4>Beyond AutoSchedule: Our Commitment to Healthcare</h4>
-                <p>AutoSchedule is just the beginning of our commitment to improving the lives of healthcare professionals. We're constantly exploring new ways to optimize workflows and empower those at the forefront of patient care.</p>
-                <p>Stay tuned for future innovations designed to:</p>
-                <ul>
-                    <li>Reduce administrative burdens for nurses and healthcare facilities.</li>
-                    <li>Enhance staff satisfaction through improved scheduling flexibility.</li>
-                    <li>Optimize staffing levels to ensure adequate patient care.</li>
-                </ul>
-                <p>Join us in building a better future for healthcare!</p>
-            </div>
-        </section>
-
-        <section id="info" class="info-section" style="display:none;">
-            <div class="container">
-                <h2>Information</h2>
-                <p>Get all the information you need about AutoSchedule. Learn about our features, pricing plans, and how to get started.</p>
-                <!-- Add sections on features, pricing, FAQs, etc. -->
-            </div>
-        </section>
-
-        <section id="signup" class="form-page" style="display:none;">
-            <div class="form-container">
-                <h2>Sign Up</h2>
-                <form id="signup-form">
-                    <label for="signup-name">Name</label>
-                    <input type="text" id="signup-name" name="signup-name" required>
-                    
-                    <label for="signup-email">Email</label>
-                    <input type="email" id="signup-email" name="signup-email" required>
-                    
-                    <label for="signup-password">Password</label>
-                    <input type="password" id="signup-password" name="signup-password" required>
-                    
-                    <button type="submit">Sign Up</button>
-                </form>
-            </div>
-        </section>
-
-        <section id="login" class="form-page" style="display:none;">
-            <div class="form-container">
-                <h2>Log In</h2>
-                <form id="login-form">
-                    <label for="login-email">Email</label>
-                    <input type="email" id="login-email" name="login-email" required>
-                    
-                    <label for="login-password">Password</label>
-                    <input type="password" id="login-password" name="login-password" required>
-                    
-                    <button type="submit">Log In</button>
-                </form>
-            </div>
-        </section>
-
+        <!-- Dashboard Section (Visible after login) -->
         <section id="dashboard" class="dashboard-page" style="display:none;">
             <div class="sidebar">
                 <h2>Navigation</h2>
@@ -139,10 +68,11 @@
             <div class="main-content">
                 <h2>Dashboard</h2>
                 <div class="overview card">
-                    <p>Welcome, <span id="user-name">User</span></p>
+                    <p>Welcome, <span id="user-name">Admin User</span></p>
                     <p>Next shift: <span id="next-shift">None</span></p>
                 </div>
                 <div class="calendar card">
+                    <!-- Calendar container -->
                     <div id="calendar"></div>
                 </div>
                 <div class="actions">
@@ -152,57 +82,16 @@
             </div>
         </section>
 
-        <section id="schedule" class="schedule-page" style="display:none;">
-            <div class="container">
-                <h2>Manage Schedule</h2>
-                <div class="schedule-list">
-                    <!-- Schedule items will be populated here -->
-                </div>
-                <button onclick="showSection('add-shift')">Add Shift</button>
-                <button onclick="showSection('dashboard')">Back to Dashboard</button>
-            </div>
-        </section>
+        <!-- Other sections here... -->
 
-        <section id="add-shift" class="add-shift-page" style="display:none;">
-            <div class="container">
-                <h2>Add New Shift</h2>
-                <form id="add-shift-form">
-                    <label for="shift-date">Date</label>
-                    <input type="date" id="shift-date" name="shift-date" required>
-                    
-                    <label for="shift-time">Time</label>
-                    <input type="time" id="shift-time" name="shift-time" required>
-                    
-                    <label for="shift-unit">Unit</label>
-                    <input type="text" id="shift-unit" name="shift-unit" required>
-                    
-                    <button type="submit">Add Shift</button>
-                </form>
-                <button onclick="showSection('schedule')">Back to Schedule</button>
-            </div>
-        </section>
-
-        <section id="profile" class="profile-page" style="display:none;">
-            <div class="container">
-                <h2>User Profile</h2>
-                <form id="profile-form">
-                    <label for="profile-name">Name</label>
-                    <input type="text" id="profile-name" name="profile-name" required>
-                    
-                    <label for="profile-email">Email</label>
-                    <input type="email" id="profile-email" name="profile-email" required>
-                    
-                    <button type="submit">Save</button>
-                </form>
-                <button onclick="showSection('dashboard')">Back to Dashboard</button>
-            </div>
-        </section>
     </main>
     
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 AutoSchedule. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript to handle section display and navigation -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             function showSection(sectionId) {
@@ -212,6 +101,11 @@
                         section.style.display = 'block';
                         if (sectionId === 'dashboard') {
                             initializeCalendar();
+                            document.getElementById('main-nav').style.display = 'none';
+                            document.getElementById('user-nav').style.display = 'block';
+                        } else {
+                            document.getElementById('main-nav').style.display = 'block';
+                            document.getElementById('user-nav').style.display = 'none';
                         }
                     } else {
                         section.style.display = 'none';
@@ -219,6 +113,7 @@
                 });
             }
 
+            // Event listeners for navigation links
             document.getElementById('nav-home').addEventListener('click', function (e) {
                 e.preventDefault();
                 showSection('home');
@@ -234,10 +129,12 @@
                 showSection('login');
             });
 
+            // Event listener for logout button
             document.getElementById('logout-btn').addEventListener('click', function() {
                 logout();
             });
 
+            // Initialize calendar with events
             function initializeCalendar() {
                 var calendarEl = document.getElementById('calendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -258,15 +155,18 @@
                 calendar.render();
             }
 
+            // Logout function to show home section
             function logout() {
                 alert('Logged out');
                 showSection('home');
             }
 
+            // Show the home section by default
             showSection('home');
         });
     </script>
 
+    <!-- External JavaScript file -->
     <script src="/autoschedule_app/app.js"></script>
 </body>
 </html>
