@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoSchedule</title>
     <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js"></script>
 </head>
 <body>
     <header>
@@ -161,6 +163,8 @@
                     <p>Welcome, <span id="user-name">User</span></p>
                     <p>Next shift: <span id="next-shift">None</span></p>
                 </div>
+                <div class="calendar card">
+                    <div id="calendar"></div>
                 <div class="actions">
                     <button onclick="showSection('schedule')" class="button">Manage Schedule</button>
                     <button onclick="showSection('profile')" class="button">Edit Profile</button>

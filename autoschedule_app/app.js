@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 const users = [
     { name: "Regular User", email: "user@example.com", password: "password", isAdmin: false },
-    { name: "Admin User", email: "admin@admin.com", password: "adminpassword", isAdmin: true }
+    { name: "Admin User", email: "admin@example.com", password: "adminpassword", isAdmin: true }
 ];
 
 // Function to handle sign up form submission
@@ -70,3 +70,31 @@ function showSection(sectionId) {
         section.style.display = section.id === sectionId ? 'block' : 'none';
     });
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize the calendar
+    const calendarEl = document.getElementById('calendar');
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: [
+            // Add your events here, or fetch them from an API
+            {
+                title: 'Shift A',
+                start: '2024-07-20',
+                end: '2024-07-21'
+            },
+            {
+                title: 'Shift B',
+                start: '2024-07-22',
+                end: '2024-07-23'
+            }
+        ]
+    });
+    
+    calendar.render();
+});
