@@ -445,3 +445,78 @@ footer {
         flex-direction: column; /* Stack elements vertically */
     }
 }
+
+/* Profile Section Styles */
+.profile-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: var(--light-color);
+    background: url('/static/assets/profile-bg.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.profile-container {
+    background: var(--secondary-color);
+    padding: 40px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: left;
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+}
+
+.profile-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--dark-color);
+    text-align: center;
+}
+
+.profile-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--light-color);
+    border-radius: 5px;
+}
+
+.profile-item label {
+    font-weight: bold;
+    color: var(--dark-color);
+}
+
+.profile-item span {
+    color: #666;
+}
+
+/* Responsive Design for Profile Section */
+@media (max-width: 768px) {
+    .profile-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

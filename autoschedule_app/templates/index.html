@@ -197,18 +197,41 @@
 
         <!-- User Profile Section -->
         <section id="profile" class="profile-page" style="display:none;">
-            <div class="container">
+            <div class="profile-container">
                 <h2>User Profile</h2>
-                <form id="profile-form">
-                    <label for="profile-name">Name</label>
-                    <input type="text" id="profile-name" name="profile-name" required>
-                    
-                    <label for="profile-email">Email</label>
-                    <input type="email" id="profile-email" name="profile-email" required>
-                    
-                    <button type="submit">Save</button>
-                </form>
-                <button onclick="showSection('dashboard')">Back to Dashboard</button>
+                <div class="profile-image">
+                    <img src="/static/assets/profile-image.jpg" alt="Profile Image">
+                </div>
+                <div class="profile-details">
+                    <div class="profile-item">
+                        <label for="name">Name:</label>
+                        <span id="name">John Doe</span>
+                    </div>
+                    <div class="profile-item">
+                        <label for="phone">Phone Number:</label>
+                        <span id="phone">(123) 456-7890</span>
+                    </div>
+                    <div class="profile-item">
+                        <label for="age">Age:</label>
+                        <span id="age">30</span>
+                    </div>
+                    <div class="profile-item">
+                        <label for="position">Position:</label>
+                        <span id="position">Software Engineer</span>
+                    </div>
+                    <div class="profile-item">
+                        <label for="department">Department:</label>
+                        <span id="department">Oncology</span>
+                    </div>
+                    <div class="profile-item">
+                        <label for="email">Email:</label>
+                        <span id="email">john.doe@example.com</span>
+                    </div>
+                    <div class="profile-item">
+                        <label for="address">Address:</label>
+                        <span id="address">123 Main St, Anytown, USA</span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
