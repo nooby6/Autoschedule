@@ -1,76 +1,73 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Event listener for sign up form submission
-    document.getElementById("signup-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
-        signup(); // Call signup function to handle form data
-    });
-
-    // Event listener for login form submission
-    document.getElementById("login-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
-        login(); // Call login function to handle form data
-    });
-
-    // Event listener for logout button
+    // Event listeners for forms and logout
+    document.getElementById("signup-form").addEventListener("submit", handleSignup);
+    document.getElementById("login-form").addEventListener("submit", handleLogin);
     document.getElementById("logout-btn").addEventListener("click", logout);
 });
 
+// Mock user data (replace with a real database in production)
 const users = [
     { name: "Regular User", email: "user@example.com", password: "password", isAdmin: false },
     { name: "Admin User", email: "admin@example.com", password: "adminpassword", isAdmin: true }
 ];
 
-// Function to handle sign up form submission
-function signup() {
+// Handle sign up
+function handleSignup(event) {
+    event.preventDefault();
     const name = document.getElementById("signup-name").value.trim();
     const email = document.getElementById("signup-email").value.trim();
     const password = document.getElementById("signup-password").value;
 
-    // Simple email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-        alert("Please enter a valid email address.");
+        showMessage("Please enter a valid email address.");
         return;
     }
 
-    // Check if user already exists
     const existingUser = users.find(user => user.email === email);
     if (existingUser) {
-        alert("Email is already registered.");
+        showMessage("Email is already registered.");
         return;
     }
 
     if (name && email && password) {
         users.push({ name, email, password, isAdmin: false });
-        alert("Sign up successful!");
-        document.getElementById("signup-form").reset(); // Clear form fields
-        showSection('login'); // Show login section after successful signup
+        showMessage("Sign up successful!");
+        document.getElementById("signup-form").reset();
+        showSection('login');
     } else {
-        alert("Please fill out all fields.");
+        showMessage("Please fill out all fields.");
     }
 }
 
-// Function to handle login form submission
-function login() {
+// Handle login
+function handleLogin(event) {
+    event.preventDefault();
     const email = document.getElementById("login-email").value.trim();
     const password = document.getElementById("login-password").value;
 
     const user = users.find(user => user.email === email && user.password === password);
-
     if (user) {
         document.getElementById("user-name").innerText = user.isAdmin ? `${user.name} (Admin)` : user.name;
-        showSection('dashboard'); // Display user dashboard
+        showSection('dashboard');
     } else {
-        alert("Invalid email or password.");
+        showMessage("Invalid email or password.");
     }
 }
 
-// Function to handle logout
-function logout() {
-    showSection('home'); // Show home section after logout
+// Show messages to users
+function showMessage(message) {
+    const messageElement = document.getElementById("message"); // Assume you have a message element
+    messageElement.innerText = message;
+    messageElement.style.display = 'block';
 }
 
-// Function to dynamically show/hide sections
+// Logout function
+function logout() {
+    showSection('home');
+}
+
+// Show/hide sections
 function showSection(sectionId) {
     const sections = document.querySelectorAll("main > section");
     sections.forEach(section => {
@@ -78,19 +75,18 @@ function showSection(sectionId) {
     });
 }
 
-// Function to fetch events from an API (placeholder example)
+// Fetch events from API (placeholder example)
 async function fetchEvents() {
     try {
-        const response = await fetch('/api/events'); // Replace with your API endpoint
-        const events = await response.json();
-        return events;
+        const response = await fetch('/api/events');
+        return await response.json();
     } catch (error) {
         console.error("Error fetching events:", error);
         return [];
     }
 }
 
-// Initialize the calendar on DOMContentLoaded
+// Initialize the calendar
 document.addEventListener('DOMContentLoaded', async function () {
     const calendarEl = document.getElementById('calendar');
     const calendar = new FullCalendar.Calendar(calendarEl, {
@@ -100,7 +96,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
-        events: await fetchEvents() // Use the fetch function
+        events: await fetchEvents()
     });
     
     calendar.render();
