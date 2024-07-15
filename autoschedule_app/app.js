@@ -33,8 +33,15 @@ function signup() {
         return;
     }
 
+    // Check if user already exists
+    const existingUser = users.find(user => user.email === email);
+    if (existingUser) {
+        alert("Email is already registered.");
+        return;
+    }
+
     if (name && email && password) {
-        users.push({ name, email, password, isAdmin: false }); // New signups are regular users
+        users.push({ name, email, password, isAdmin: false });
         alert("Sign up successful!");
         document.getElementById("signup-form").reset(); // Clear form fields
         showSection('login'); // Show login section after successful signup
@@ -71,8 +78,20 @@ function showSection(sectionId) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Initialize the calendar
+// Function to fetch events from an API (placeholder example)
+async function fetchEvents() {
+    try {
+        const response = await fetch('/api/events'); // Replace with your API endpoint
+        const events = await response.json();
+        return events;
+    } catch (error) {
+        console.error("Error fetching events:", error);
+        return [];
+    }
+}
+
+// Initialize the calendar on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', async function () {
     const calendarEl = document.getElementById('calendar');
     const calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
@@ -81,19 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
-        events: [
-            // Add your events here, or fetch them from an API
-            {
-                title: 'Shift A',
-                start: '2024-07-20',
-                end: '2024-07-21'
-            },
-            {
-                title: 'Shift B',
-                start: '2024-07-22',
-                end: '2024-07-23'
-            }
-        ]
+        events: await fetchEvents() // Use the fetch function
     });
     
     calendar.render();

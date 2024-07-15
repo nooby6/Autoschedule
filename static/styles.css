@@ -442,3 +442,15 @@ footer {
     display: flex;
     justify-content: center;
 }
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Full width on smaller screens */
+        margin-right: 0;
+        margin-bottom: 20px; /* Space below sidebar */
+    }
+
+    .dashboard-page {
+        flex-direction: column; /* Stack elements vertically */
+    }
+}
