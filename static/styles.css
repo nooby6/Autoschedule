@@ -11,6 +11,7 @@
     --success-color: #28a745;
     --warning-color: #ffc107;
     --info-color: #17a2b8;
+    --grey-color: #666; /* Added for consistency */
 }
 
 body {
@@ -28,8 +29,6 @@ header {
     padding: 20px 0;
     position: fixed;
     width: 100%;
-    top: 0;
-    left: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -59,7 +58,7 @@ header nav ul li a:hover {
 
 /* Landing Page Styles */
 .landing-page {
-    background: url('/static/assets/autoschedule\ banner.jpg') no-repeat center center;
+    background: url('/static/assets/autoschedule banner.jpg') no-repeat center center;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -174,7 +173,7 @@ header nav ul li a:hover {
 .about-container p {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #666;
+    color: var(--grey-color);
 }
 
 .founder {
@@ -199,7 +198,7 @@ header nav ul li a:hover {
 .founder p {
     margin: 0;
     font-size: 16px;
-    color: #666;
+    color: var(--grey-color);
 }
 
 /* Work Section Styles */
@@ -235,7 +234,7 @@ header nav ul li a:hover {
 .work-section p {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #666;
+    color: var(--grey-color);
 }
 
 /* Info Section Styles */
@@ -270,7 +269,7 @@ header nav ul li a:hover {
 .info-section p {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #666;
+    color: var(--grey-color);
 }
 
 /* Form Page Styles */
@@ -305,7 +304,7 @@ header nav ul li a:hover {
 .form-container p {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #666;
+    color: var(--grey-color);
 }
 
 .form-container form {
@@ -425,9 +424,7 @@ footer {
     padding: 20px 0;
     background: var(--dark-color);
     color: var(--secondary-color);
-    position: auto;
     width: 100%;
-    bottom: 0;
     height: 30px;
     display: flex;
     justify-content: center;
@@ -437,12 +434,16 @@ footer {
 @media (max-width: 768px) {
     .sidebar {
         width: 100%; /* Full width on smaller screens */
-        margin-right: 0;
-        margin-bottom: 20px; /* Space below sidebar */
+        margin: 0 0 20px; /* Space below sidebar */
     }
 
     .dashboard-page {
         flex-direction: column; /* Stack elements vertically */
+    }
+
+    /* Adjust button sizes for smaller screens */
+    .form-container button {
+        padding: 12px;
     }
 }
 
@@ -510,7 +511,7 @@ footer {
 }
 
 .profile-item span {
-    color: #666;
+    color: var(--grey-color);
 }
 
 /* Responsive Design for Profile Section */
