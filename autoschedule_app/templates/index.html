@@ -249,39 +249,47 @@
                     section.style.display = section.id === sectionId ? 'block' : 'none';
                 });
             }
-
+    
+            // Function to handle login
+            function login() {
+                alert('Logged in successfully!'); // Simulate successful login
+                document.getElementById('navbar').style.display = 'none'; // Hide navigation
+                showSection('dashboard'); // Show dashboard section
+            }
+    
             // Event listeners for navigation links
             document.getElementById('nav-home').addEventListener('click', function (e) {
                 e.preventDefault();
                 showSection('home');
             });
-
+    
             document.getElementById('nav-signup').addEventListener('click', function (e) {
                 e.preventDefault();
                 showSection('signup');
             });
-
+    
             document.getElementById('nav-login').addEventListener('click', function (e) {
                 e.preventDefault();
-                showSection('login');
+                login(); // Call login function on click
             });
-
+    
             // Show the home section by default
             showSection('home');
         });
-
+    
         // Function to handle logout action
         function logout() {
             alert('Logged out');
-            showSection('home');
+            document.getElementById('navbar').style.display = 'block'; // Show navigation again
+            showSection('home'); // Show home section
         }
-
+    
         // Event listener for logout button
         document.getElementById('logout-btn').addEventListener('click', function() {
             logout();
         });
     </script>
-
+    
     <!-- External JavaScript file -->
     <script src="/autoschedule_app/app.js"></script>
 </body>
