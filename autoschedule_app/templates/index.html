@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoSchedule</title>
     <link rel="stylesheet" href="/static/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
 </head>
 <body>
     <header>
@@ -61,7 +61,7 @@
                 </div>
             </div>
         </section>
-        <!-- Our Work Section -->
+
         <section id="work" class="work-section" style="display:none;">
             <div class="container">
                 <h2>Our Work</h2>
@@ -87,7 +87,7 @@
                 <p>Join us in building a better future for healthcare!</p>
             </div>
         </section>
-        <!-- About Us Section -->
+
         <section id="info" class="info-section" style="display:none;">
             <div class="container">
                 <h2>Information</h2>
@@ -95,26 +95,7 @@
                 <!-- Add sections on features, pricing, FAQs, etc. -->
             </div>
         </section>
-        <!-- Login and Sign Up section -->
-        <section id="get-started" class="form-page" style="display:none;">
-            <div class="form-container">
-                <h2>Get Started</h2>
-                <form>
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                    
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                    
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                    
-                    <button type="submit">Sign Up</button>
-                </form>
-            </div>
-        </section>
 
-        <!-- Sign Up Section -->
         <section id="signup" class="form-page" style="display:none;">
             <div class="form-container">
                 <h2>Sign Up</h2>
@@ -133,7 +114,6 @@
             </div>
         </section>
 
-        <!-- Login Section -->
         <section id="login" class="form-page" style="display:none;">
             <div class="form-container">
                 <h2>Log In</h2>
@@ -149,33 +129,29 @@
             </div>
         </section>
 
-        <!-- Dashboard Section (Visible after login) -->
-       <!-- Dashboard Section (Visible after login) -->
-<section id="dashboard" class="dashboard-page" style="display:none;">
-    <div class="sidebar">
-        <h2>Navigation</h2>
-        <a href="#schedule" onclick="showSection('schedule')">View Schedule</a>
-        <a href="#profile" onclick="showSection('profile')">User Profile</a>
-        <button id="logout-btn" class="button">Logout</button>
-    </div>
-    <div class="main-content">
-        <h2>Dashboard</h2>
-        <div class="overview card">
-            <p>Welcome, <span id="user-name">User</span></p>
-            <p>Next shift: <span id="next-shift">None</span></p>
-        </div>
-        <div class="calendar card">
-            <div id="calendar"></div>
-        </div>
-        <div class="actions">
-            <button onclick="showSection('schedule')" class="button">Manage Schedule</button>
-            <button onclick="showSection('profile')" class="button">Edit Profile</button>
-        </div>
-    </div>
-</section>
-   
+        <section id="dashboard" class="dashboard-page" style="display:none;">
+            <div class="sidebar">
+                <h2>Navigation</h2>
+                <a href="#schedule" onclick="showSection('schedule')">View Schedule</a>
+                <a href="#profile" onclick="showSection('profile')">User Profile</a>
+                <button id="logout-btn" class="button">Logout</button>
+            </div>
+            <div class="main-content">
+                <h2>Dashboard</h2>
+                <div class="overview card">
+                    <p>Welcome, <span id="user-name">User</span></p>
+                    <p>Next shift: <span id="next-shift">None</span></p>
+                </div>
+                <div class="calendar card">
+                    <div id="calendar"></div>
+                </div>
+                <div class="actions">
+                    <button onclick="showSection('schedule')" class="button">Manage Schedule</button>
+                    <button onclick="showSection('profile')" class="button">Edit Profile</button>
+                </div>
+            </div>
+        </section>
 
-        <!-- Schedule Management Section -->
         <section id="schedule" class="schedule-page" style="display:none;">
             <div class="container">
                 <h2>Manage Schedule</h2>
@@ -187,7 +163,6 @@
             </div>
         </section>
 
-        <!-- Add Shift Section -->
         <section id="add-shift" class="add-shift-page" style="display:none;">
             <div class="container">
                 <h2>Add New Shift</h2>
@@ -207,7 +182,6 @@
             </div>
         </section>
 
-        <!-- User Profile Section -->
         <section id="profile" class="profile-page" style="display:none;">
             <div class="container">
                 <h2>User Profile</h2>
@@ -236,6 +210,9 @@
                 sections.forEach(section => {
                     if (section.id === sectionId) {
                         section.style.display = 'block';
+                        if (sectionId === 'dashboard') {
+                            initializeCalendar();
+                        }
                     } else {
                         section.style.display = 'none';
                     }
@@ -257,18 +234,36 @@
                 showSection('login');
             });
 
-            // Show the home section by default
-            showSection('home');
-        });
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                logout();
+            });
 
-        function logout() {
-            // Placeholder for logout functionality
-            alert('Logged out');
-            showSection('home');
-        }
+            function initializeCalendar() {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    events: [
+                        {
+                            title: 'Shift 1',
+                            start: '2023-07-01T10:00:00',
+                            end: '2023-07-01T14:00:00'
+                        },
+                        {
+                            title: 'Shift 2',
+                            start: '2023-07-05T12:00:00',
+                            end: '2023-07-05T16:00:00'
+                        }
+                    ]
+                });
+                calendar.render();
+            }
 
-        document.getElementById('logout-btn').addEventListener('click', function() {
-            logout();
+            function logout() {
+                alert('Logged out');
+                showSection('home');
+            }
+
+            showSection('home');
         });
     </script>
 
