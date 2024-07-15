@@ -104,6 +104,13 @@ header {
     background: #444;
 }
 
+.calendar {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background: var(--light-color);
+}
+
 header nav ul {
     list-style: none;
     padding: 2px;
