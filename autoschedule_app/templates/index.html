@@ -243,50 +243,71 @@
     <!-- JavaScript to handle section navigation and interactions -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Function to show the selected section and hide others
             function showSection(sectionId) {
                 const sections = document.querySelectorAll('section');
                 sections.forEach(section => {
                     section.style.display = section.id === sectionId ? 'block' : 'none';
                 });
             }
-    
-            // Function to handle login
+
+            // Function to handle login action
             function login() {
-                alert('Logged in successfully!'); // Simulate successful login
-                document.getElementById('navbar').style.display = 'none'; // Hide navigation
-                showSection('dashboard'); // Show dashboard section
+                // Get email and password values from the form
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+
+                // Simulate validation (you can replace this with actual validation logic)
+                if (email && password) {
+                    alert('Logged in successfully!'); // Simulate successful login
+                    document.getElementById('navbar').style.display = 'none'; // Hide navigation
+                    showSection('dashboard'); // Show dashboard section
+                } else {
+                    alert('Please enter your email and password.'); // Alert if fields are empty
+                }
             }
-    
+
             // Event listeners for navigation links
             document.getElementById('nav-home').addEventListener('click', function (e) {
                 e.preventDefault();
                 showSection('home');
             });
-    
+
             document.getElementById('nav-signup').addEventListener('click', function (e) {
                 e.preventDefault();
                 showSection('signup');
             });
-    
+
             document.getElementById('nav-login').addEventListener('click', function (e) {
                 e.preventDefault();
-                login(); // Call login function on click
+                showSection('login'); // Show login section
             });
-    
+
+            // Form submission handlers
+            document.getElementById('signup-form').addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent form submission
+                alert('Signup functionality not implemented yet.'); // Placeholder alert
+            });
+
+            document.getElementById('login-form').addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent form submission
+                login(); // Call login function on form submit
+            });
+
             // Show the home section by default
             showSection('home');
         });
-    
+
         // Function to handle logout action
         function logout() {
             alert('Logged out');
             document.getElementById('navbar').style.display = 'block'; // Show navigation again
             showSection('home'); // Show home section
         }
-    
+
         // Event listener for logout button
         document.getElementById('logout-btn').addEventListener('click', function() {
-            logout();
+            logout(); // Call logout function on button click
         });
     </script>
     
