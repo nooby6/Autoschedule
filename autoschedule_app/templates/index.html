@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoSchedule</title>
+    <!-- Link to the external stylesheet -->
     <link rel="stylesheet" href="/static/styles.css">
+    <!-- Link to FullCalendar CSS for the calendar component -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" rel="stylesheet">
 </head>
 <body>
@@ -19,10 +21,12 @@
     </header>
 
     <main>
+        <!-- Home Section -->
         <section id="home" class="landing-page">
             <div class="overlay">
                 <div class="container">
                     <div class="logo-container">
+                        <!-- Logo Image -->
                         <img src="/static/assets/Autoschedule_logo-final.png" alt="AutoSchedule Logo">
                     </div>
                     <div class="content">
@@ -39,12 +43,14 @@
             </div>
         </section>
 
+        <!-- About Us Section -->
         <section id="about-us" class="about-page" style="display:none;">
             <div class="about-container">
                 <h2>About Us</h2>
                 <p>AutoSchedule is dedicated to simplifying the complexities of shift management in the healthcare sector. Our platform is designed to ensure efficiency, accuracy, and ease of use for healthcare professionals.</p>
                 <h2>Meet the Founders</h2>
                 <div class="founder">
+                    <!-- Founder 1 Image and Details -->
                     <img src="/static/assets/pp2.JPG" alt="Founder 1">
                     <div>
                         <h4>Audrine Whrite</h4>
@@ -52,6 +58,7 @@
                     </div>
                 </div>
                 <div class="founder">
+                    <!-- Founder 2 Image and Details -->
                     <img src="/static/assets/founder2.jpg" alt="Founder 2">
                     <div>
                         <h4>Stafford Okoth</h4>
@@ -60,6 +67,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Our Work Section -->
         <section id="work" class="work-section" style="display:none;">
             <div class="container">
@@ -86,30 +94,13 @@
                 <p>Join us in building a better future for healthcare!</p>
             </div>
         </section>
-        <!-- About Us Section -->
+
+        <!-- Information Section -->
         <section id="info" class="info-section" style="display:none;">
             <div class="container">
                 <h2>Information</h2>
                 <p>Get all the information you need about AutoSchedule. Learn about our features, pricing plans, and how to get started.</p>
                 <!-- Add sections on features, pricing, FAQs, etc. -->
-            </div>
-        </section>
-        <!-- Login and Sign Up section -->
-        <section id="get-started" class="form-page" style="display:none;">
-            <div class="form-container">
-                <h2>Get Started</h2>
-                <form>
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                    
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                    
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                    
-                    <button type="submit">Sign Up</button>
-                </form>
             </div>
         </section>
 
@@ -148,31 +139,29 @@
             </div>
         </section>
 
-        <!-- Dashboard Section (Visible after login) -->
-       <!-- Dashboard Section (Visible after login) -->
-<section id="dashboard" class="dashboard-page" style="display:none;">
-    <div class="sidebar">
-        <h2>Navigation</h2>
-        <a href="#schedule" onclick="showSection('schedule')">View Schedule</a>
-        <a href="#profile" onclick="showSection('profile')">User Profile</a>
-        <button id="logout-btn" class="button">Logout</button>
-    </div>
-    <div class="main-content">
-        <h2>Dashboard</h2>
-        <div class="overview card">
-            <p>Welcome, <span id="user-name">User</span></p>
-            <p>Next shift: <span id="next-shift">None</span></p>
-        </div>
-        <div class="calendar card">
-            <div id="calendar"></div>
-        </div>
-        <div class="actions">
-            <button onclick="showSection('schedule')" class="button">Manage Schedule</button>
-            <button onclick="showSection('profile')" class="button">Edit Profile</button>
-        </div>
-    </div>
-</section>
-   
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard-page" style="display:none;">
+            <div class="sidebar">
+                <h2>Navigation</h2>
+                <a href="#schedule" onclick="showSection('schedule')">View Schedule</a>
+                <a href="#profile" onclick="showSection('profile')">User Profile</a>
+                <button id="logout-btn" class="button">Logout</button>
+            </div>
+            <div class="main-content">
+                <h2>Dashboard</h2>
+                <div class="overview card">
+                    <p>Welcome, <span id="user-name">User</span></p>
+                    <p>Next shift: <span id="next-shift">None</span></p>
+                </div>
+                <div class="calendar card">
+                    <div id="calendar"></div>
+                </div>
+                <div class="actions">
+                    <button onclick="showSection('schedule')" class="button">Manage Schedule</button>
+                    <button onclick="showSection('profile')" class="button">Edit Profile</button>
+                </div>
+            </div>
+        </section>
 
         <!-- Schedule Management Section -->
         <section id="schedule" class="schedule-page" style="display:none;">
@@ -228,19 +217,17 @@
         <p>&copy; 2024 AutoSchedule. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript to handle section navigation and interactions -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             function showSection(sectionId) {
                 const sections = document.querySelectorAll('section');
                 sections.forEach(section => {
-                    if (section.id === sectionId) {
-                        section.style.display = 'block';
-                    } else {
-                        section.style.display = 'none';
-                    }
+                    section.style.display = section.id === sectionId ? 'block' : 'none';
                 });
             }
 
+            // Event listeners for navigation links
             document.getElementById('nav-home').addEventListener('click', function (e) {
                 e.preventDefault();
                 showSection('home');
@@ -260,17 +247,19 @@
             showSection('home');
         });
 
+        // Function to handle logout action
         function logout() {
-            // Placeholder for logout functionality
             alert('Logged out');
             showSection('home');
         }
 
+        // Event listener for logout button
         document.getElementById('logout-btn').addEventListener('click', function() {
             logout();
         });
     </script>
 
+    <!-- External JavaScript file -->
     <script src="/autoschedule_app/app.js"></script>
 </body>
 </html>

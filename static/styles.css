@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 /* Global Styles */
-
 :root {
     --primary-color: #333;
     --secondary-color: #fff;
@@ -23,6 +22,7 @@ body {
     line-height: 1.6;
 }
 
+/* Header Styles */
 header {
     background: rgba(0, 0, 0, 0.5);
     padding: 20px 0;
@@ -32,83 +32,6 @@ header {
     left: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Dashboard Styles */
-.dashboard-page {
-    display: flex;
-    background-color: var(--light-color);
-    padding: 20px;
-    flex-direction: box;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    font-family: 'Roboto', sans-serif;
-    background: url('/static/assets/hs3.jpg') no-repeat center center;
-    background-size: cover;
-}
-
-/* Sidebar */
-.sidebar {
-    width: 200px;
-    background: var(--dark-color);
-    color: var(--secondary-color);
-    padding: 20px;
-    border-radius: 5px;
-    margin-right: 20px;
-}
-
-.sidebar a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.sidebar a:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-/* Main Content */
-.main-content {
-    flex-grow: 1;
-    background: var(--secondary-color);
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Card Styles */
-.card {
-    background: var(--light-color);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-/* Buttons */
-.button {
-    background: var(--dark-color);
-    color: var(--secondary-color);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.button:hover {
-    background: #444;
-}
-
-.calendar {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    background: var(--light-color);
 }
 
 header nav ul {
@@ -134,17 +57,7 @@ header nav ul li a:hover {
     color: var(--secondary-color);
 }
 
-.logo-container {
-    text-align: center;
-    margin-top: 100px;
-    margin-bottom: -20px;
-}
-
-.logo-container img {
-    max-width: 400px;
-    height: auto;
-}
-
+/* Landing Page Styles */
 .landing-page {
     background: url('/static/assets/autoschedule\ banner.jpg') no-repeat center center;
     background-size: cover;
@@ -229,14 +142,15 @@ header nav ul li a:hover {
     background: #555;
 }
 
-/* About */
+/* About Page Styles */
 .about-page {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: var(--light-color);
-
+    background: url('/static/assets/hs2.jpg') no-repeat center center;
+    background-size: cover;
 }
 
 .about-container {
@@ -246,10 +160,9 @@ header nav ul li a:hover {
     border-radius: 5px;
     text-align: center;
     max-width: 800px;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: auto;
-    margin-top: 100px;
 }
 
 .about-container h2 {
@@ -289,7 +202,7 @@ header nav ul li a:hover {
     color: #666;
 }
 
-/* Work Section */
+/* Work Section Styles */
 .work-section {
     display: flex;
     justify-content: center;
@@ -325,7 +238,7 @@ header nav ul li a:hover {
     color: #666;
 }
 
-/* Info Section */
+/* Info Section Styles */
 .info-section {
     display: flex;
     justify-content: center;
@@ -334,7 +247,6 @@ header nav ul li a:hover {
     background-color: var(--light-color);
     margin: auto;
     margin-top: 100px;
-
 }
 
 .info-section .container {
@@ -429,6 +341,84 @@ header nav ul li a:hover {
     transform: scale(1.05);
 }
 
+/* Dashboard Page Styles */
+.dashboard-page {
+    display: flex;
+    background-color: var(--light-color);
+    padding: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-family: 'Roboto', sans-serif;
+    background: url('/static/assets/hs3.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 200px;
+    background: var(--dark-color);
+    color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.sidebar a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Content Styles */
+.main-content {
+    flex-grow: 1;
+    background: var(--secondary-color);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Styles */
+.card {
+    background: var(--light-color);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Button Styles */
+.button {
+    background: var(--dark-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background: #444;
+}
+
+/* Calendar Styles */
+.calendar {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background: var(--light-color);
+}
+
 /* Footer Styles */
 footer {
     text-align: center;
@@ -443,6 +433,7 @@ footer {
     justify-content: center;
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
     .sidebar {
         width: 100%; /* Full width on smaller screens */
