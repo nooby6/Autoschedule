@@ -39,6 +39,13 @@ header {
     display: flex;
     background-color: var(--light-color);
     padding: 20px;
+    flex-direction: box;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-family: 'Roboto', sans-serif;
+    background: url('/static/assets/hs3.jpg') no-repeat center center;
+    background-size: cover;
 }
 
 /* Sidebar */
