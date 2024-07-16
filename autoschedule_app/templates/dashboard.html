@@ -158,10 +158,12 @@
             });
 
             // Function to handle logout action
-            const logout = () => {
-                alert('Logged out');
-                showSection('home'); // Show home section
-            }
+            function logout() {
+                localStorage.removeItem("loggedInUser"); // Clear user data
+                 console.log("Logging out... Redirecting to index.html"); // Debugging line
+                 window.location.href = "index.html"; // Redirect to landing page
+}
+
 
             // Show the dashboard section by default
             showSection('dashboard');
