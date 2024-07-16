@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link href="/path/to/fullcalendar/core/main.css" rel="stylesheet">
+    <link href="/path/to/fullcalendar/daygrid/main.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/dashstyles.css">
+    <script src="/path/to/fullcalendar/core/main.js" defer></script>
+    <script src="/path/to/fullcalendar/daygrid/main.js" defer></script>
     <script src="/autoschedule_app/app.js" defer></script>
 </head>
 <body>
@@ -113,6 +117,15 @@
                 </table>
             </div>
         </section>
+
+        <!-- Shift Calendar Section -->
+        <section id="shift-calendar" class="shift-calendar-page" style="display: none;">
+            <div class="container">
+                <h2>Shift Calendar</h2>
+                <div id="shift-calendar-container"></div>
+                <button onclick="showSection('dashboard')">Back to Dashboard</button>
+            </div>
+        </section>
     </main>
 
     <script>
@@ -122,6 +135,10 @@
                 document.querySelectorAll('section').forEach(section => {
                     section.style.display = section.id === sectionId ? 'block' : 'none';
                 });
+
+                if (sectionId === 'shift-calendar') {
+                    initializeShiftCalendar();
+                }
             }
 
             // Function to render users in admin section
@@ -160,14 +177,62 @@
             // Function to handle logout action
             function logout() {
                 localStorage.removeItem("loggedInUser"); // Clear user data
-                 console.log("Logging out... Redirecting to index.html"); // Debugging line
-                 window.location.href = "index.html"; // Redirect to landing page
-}
-
+                console.log("Logging out... Redirecting to index.html"); // Debugging line
+                window.location.href = "index.html"; // Redirect to landing page
+            }
 
             // Show the dashboard section by default
             showSection('dashboard');
         });
+
+        // Initialize the shift calendar
+        function initializeShiftCalendar() {
+            const calendarEl = document.getElementById('shift-calendar-container');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: generateShiftEvents() // Fetch and set events
+            });
+            
+            calendar.render(); // Render the calendar
+        }
+
+        // Generate events for the shift calendar (mock implementation)
+        function generateShiftEvents() {
+            const events = [];
+            const startDate = new Date();
+            startDate.setDate(1); // Start from the 1st of the current month
+            const endDate = new Date(startDate);
+            endDate.setMonth(startDate.getMonth() + 1); // Go to the 1st of next month
+
+            // Mock data for shift dates (replace with actual data)
+            const shiftDates = [
+                { start: '2024-07-01', end: '2024-07-02', title: 'Work Day' },
+                { start: '2024-07-05', end: '2024-07-06', title: 'Work Day' },
+                { start: '2024-07-08', end: '2024-07-09', title: 'Work Day' },
+                { start: '2024-07-12', end: '2024-07-12', title: 'Day Off' },
+                { start: '2024-07-15', end: '2024-07-16', title: 'Work Day' },
+                { start: '2024-07-19', end: '2024-07-19', title: 'Day Off' },
+                { start: '2024-07-22', end: '2024-07-23', title: 'Work Day' },
+                { start: '2024-07-26', end: '2024-07-26', title: 'Day Off' },
+                { start: '2024-07-29', end: '2024-07-30', title: 'Work Day' }
+            ];
+
+            shiftDates.forEach(shift => {
+                events.push({
+                    title: shift.title,
+                    start: shift.start,
+                    end: shift.end,
+                    classNames: shift.title === 'Work Day' ? 'workday' : 'dayoff'
+                });
+            });
+
+            return events;
+        }
     </script>
 </body>
 </html>
