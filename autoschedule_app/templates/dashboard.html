@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="dashboard.js" defer></script>
+    <link rel="stylesheet" href="/static/dashstyles.css">
+    <script src="/autoschedule_app/app.js" defer></script>
 </head>
 <body>
     <!-- Header with navigation links -->
@@ -13,7 +13,7 @@
         <nav>
             <ul>
                 <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="#" onclick="logout()">Logout</a></li>
+                <li><a href="#" id="logout-btn">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -23,7 +23,7 @@
         <section id="dashboard" class="dashboard-page">
             <div class="sidebar">
                 <h2>Navigation</h2>
-                <a href="#">Link 1</a>
+                <a href="#">Shift Allocation</a>
                 <a href="#">Link 2</a>
                 <a href="#">Link 3</a>
             </div>

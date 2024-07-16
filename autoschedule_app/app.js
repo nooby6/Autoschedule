@@ -1,11 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-    if (document.getElementById("signup-form")) {
-        document.getElementById("signup-form").addEventListener("submit", handleSignup);
-        document.getElementById("login-form").addEventListener("submit", handleLogin);
-    }
-    if (document.getElementById("logout-btn")) {
-        document.getElementById("logout-btn").addEventListener("click", logout);
-    }
+    // Event listeners for forms and logout
+    document.getElementById("signup-form").addEventListener("submit", handleSignup);
+    document.getElementById("login-form").addEventListener("submit", handleLogin);
+    document.getElementById("logout-btn").addEventListener("click", logout);
 });
 
 // Mock user data (replace with a real database in production)
@@ -55,8 +52,8 @@ function handleLogin(event) {
     // Validate user credentials
     const user = users.find(user => user.email === email && user.password === password);
     if (user) {
-        localStorage.setItem("loggedInUser", JSON.stringify(user));
-        window.location.href = "dashboard.html"; // Redirect to dashboard
+        document.getElementById("user-name").innerText = user.isAdmin ? `${user.name} (Admin)` : user.name;
+        showSection('dashboard'); // Show dashboard section on successful login
     } else {
         showMessage("Invalid email or password.");
     }
@@ -64,17 +61,14 @@ function handleLogin(event) {
 
 // Show messages to users
 function showMessage(message) {
-    const messageElement = document.getElementById("message");
-    if (messageElement) {
-        messageElement.innerText = message;
-        messageElement.style.display = 'block';
-    }
+    const messageElement = document.getElementById("message"); // Ensure you have an element for messages
+    messageElement.innerText = message;
+    messageElement.style.display = 'block'; // Display the message
 }
 
 // Logout function
 function logout() {
-    localStorage.removeItem("loggedInUser");
-    window.location.href = "index.html"; // Redirect to home page
+    showSection('home'); // Show home section on logout
 }
 
 // Show/hide sections
@@ -99,64 +93,15 @@ async function fetchEvents() {
 // Initialize the calendar
 document.addEventListener('DOMContentLoaded', async function () {
     const calendarEl = document.getElementById('calendar');
-    if (calendarEl) {
-        const calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay'
-            },
-            events: await fetchEvents() // Fetch and set events
-        });
-        
-        calendar.render(); // Render the calendar
-    }
-
-    // Set user name if logged in
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (loggedInUser) {
-        document.getElementById("user-name").innerText = loggedInUser.isAdmin ? `${loggedInUser.name} (Admin)` : loggedInUser.name;
-    } else {
-        // Redirect to home if not logged in
-        if (window.location.pathname.endsWith("dashboard.html")) {
-            window.location.href = "index.html";
-        }
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    function showSection(sectionId) {
-        const sections = document.querySelectorAll('section');
-        sections.forEach(section => {
-            section.style.display = section.id === sectionId ? 'block' : 'none';
-        });
-    }
-
-    document.getElementById('nav-home').addEventListener('click', function (e) {
-        e.preventDefault();
-        showSection('home');
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: await fetchEvents() // Fetch and set events
     });
-
-    document.getElementById('nav-signup').addEventListener('click', function (e) {
-        e.preventDefault();
-        showSection('signup');
-    });
-
-    document.getElementById('nav-login').addEventListener('click', function (e) {
-        e.preventDefault();
-        showSection('login');
-    });
-
-    document.getElementById('nav-dashboard').addEventListener('click', function (e) {
-        e.preventDefault();
-        showSection('dashboard');
-    });
-
-    document.getElementById('logout-btn').addEventListener('click', function() {
-        alert('Logged out');
-        window.location.href = '/index.html';
-    });
-
-    showSection('home');
+    
+    calendar.render(); // Render the calendar
 });
