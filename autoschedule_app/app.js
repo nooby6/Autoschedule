@@ -36,8 +36,11 @@ function handleSignup(event) {
         // Add new user to mock data
         users.push({ name, email, password, isAdmin: false });
         showMessage("Sign up successful!");
-        document.getElementById("signup-form").reset();
-        showSection('login'); // Redirect to login section
+
+        // Redirect to dashboard after signup
+        setTimeout(() => {
+            window.location.href = "dashboard.html"; // Redirect to dashboard
+        }, 1000); // Wait 1 second before redirecting
     } else {
         showMessage("Please fill out all fields.");
     }
@@ -52,8 +55,13 @@ function handleLogin(event) {
     // Validate user credentials
     const user = users.find(user => user.email === email && user.password === password);
     if (user) {
-        document.getElementById("user-name").innerText = user.isAdmin ? `${user.name} (Admin)` : user.name;
-        showSection('dashboard'); // Show dashboard section on successful login
+        // Set user name in local storage if needed
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+        // Redirect to dashboard after login
+        setTimeout(() => {
+            window.location.href = "dashboard.html"; // Redirect to dashboard
+        }, 1000); // Wait 1 second before redirecting
     } else {
         showMessage("Invalid email or password.");
     }
@@ -68,6 +76,7 @@ function showMessage(message) {
 
 // Logout function
 function logout() {
+    localStorage.removeItem("loggedInUser"); // Clear user data
     showSection('home'); // Show home section on logout
 }
 
