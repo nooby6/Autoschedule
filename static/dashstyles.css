@@ -1,5 +1,3 @@
-/* styles.css */
-
 /* Reset some default styles */
 body, h1, h2, h3, p {
     margin: 0;
@@ -103,6 +101,41 @@ nav a:hover {
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+}
+
+/* Shift calendar styles */
+.shift-calendar {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+}
+
+.shift-calendar h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.8em;
+}
+
+.shift-calendar .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.shift-calendar .calendar-day {
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.shift-calendar .workday {
+    background-color: #c8e6c9; /* Light green for workdays */
+}
+
+.shift-calendar .dayoff {
+    background-color: #f8d7da; /* Light red for days off */
 }
 
 /* Button styles */
