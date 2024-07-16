@@ -12,7 +12,6 @@
     <script src="/autoschedule_app/app.js" defer></script>
 </head>
 <body>
-    <!-- Header with navigation links -->
     <header>
         <nav>
             <ul>
@@ -23,7 +22,6 @@
     </header>
 
     <main>
-        <!-- Dashboard Section -->
         <section id="dashboard" class="dashboard-page">
             <div class="sidebar">
                 <h2>Navigation</h2>
@@ -130,6 +128,13 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+            if (loggedInUser) {
+                document.getElementById("user-name").innerText = loggedInUser.name;
+                // Set next shift if available, replace with actual logic
+                document.getElementById("next-shift").innerText = "Next Shift Details Here"; // Update with actual data
+            }
+
             // Function to show the selected section and hide others
             const showSection = (sectionId) => {
                 document.querySelectorAll('section').forEach(section => {
@@ -158,26 +163,21 @@
                 });
             }
 
-            // Function to simulate or retrieve shift details for a user
             const getShiftDetails = (user) => {
                 return `Shift details for ${user.name}`; // Replace with actual shift data
             }
 
-            // Show the admin section
             const showAdminSection = () => {
                 showSection('admin');
                 renderUsers();
             }
 
-            // Event listener for logout button
             document.getElementById('logout-btn').addEventListener('click', () => {
                 logout(); // Call logout function on button click
             });
 
-            // Function to handle logout action
             function logout() {
                 localStorage.removeItem("loggedInUser"); // Clear user data
-                console.log("Logging out... Redirecting to index.html"); // Debugging line
                 window.location.href = "index.html"; // Redirect to landing page
             }
 
@@ -204,12 +204,6 @@
         // Generate events for the shift calendar (mock implementation)
         function generateShiftEvents() {
             const events = [];
-            const startDate = new Date();
-            startDate.setDate(1); // Start from the 1st of the current month
-            const endDate = new Date(startDate);
-            endDate.setMonth(startDate.getMonth() + 1); // Go to the 1st of next month
-
-            // Mock data for shift dates (replace with actual data)
             const shiftDates = [
                 { start: '2024-07-01', end: '2024-07-02', title: 'Work Day' },
                 { start: '2024-07-05', end: '2024-07-06', title: 'Work Day' },
