@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("signup-form").addEventListener("submit", handleSignup);
     document.getElementById("login-form").addEventListener("submit", handleLogin);
     document.getElementById("logout-btn").addEventListener("click", logout);
+
+    // Initialize the calendar
+    initializeCalendar();
 });
 
 // Mock user data (replace with a real database in production)
@@ -100,7 +103,7 @@ async function fetchEvents() {
 }
 
 // Initialize the calendar
-document.addEventListener('DOMContentLoaded', async function () {
+async function initializeCalendar() {
     const calendarEl = document.getElementById('calendar');
     const calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
@@ -113,4 +116,4 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
     
     calendar.render(); // Render the calendar
-});
+}
