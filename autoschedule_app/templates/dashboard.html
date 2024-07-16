@@ -19,14 +19,12 @@
     </header>
 
     <main>
-        <!-- Dashboard section -->
         <!-- Dashboard Section -->
         <section id="dashboard" class="dashboard-page" style="display:none;">
             <div class="sidebar">
                 <h2>Navigation</h2>
                 <a href="#schedule" onclick="showSection('schedule')">View Schedule</a>
                 <a href="#profile" onclick="showSection('profile')">User Profile</a>
-                <button id="logout-btn" class="button">Logout</button>
             </div>
             <div class="main-content">
                 <h2>Dashboard</h2>
@@ -84,110 +82,42 @@
                     <img src="/static/assets/profile-image.jpg" alt="Profile Image">
                 </div>
                 <div class="profile-details">
-                    <div class="profile-item">
-                        <label for="name">Name:</label>
-                        <span id="name">John Doe</span>
-                    </div>
-                    <div class="profile-item">
-                        <label for="phone">Phone Number:</label>
-                        <span id="phone">(123) 456-7890</span>
-                    </div>
-                    <div class="profile-item">
-                        <label for="age">Age:</label>
-                        <span id="age">30</span>
-                    </div>
-                    <div class="profile-item">
-                        <label for="position">Position:</label>
-                        <span id="position">Software Engineer</span>
-                    </div>
-                    <div class="profile-item">
-                        <label for="department">Department:</label>
-                        <span id="department">Oncology</span>
-                    </div>
-                    <div class="profile-item">
-                        <label for="email">Email:</label>
-                        <span id="email">john.doe@example.com</span>
-                    </div>
-                    <div class="profile-item">
-                        <label for="address">Address:</label>
-                        <span id="address">123 Main St, Anytown, USA</span>
-                    </div>
+                    <div class="profile-item"><label for="name">Name:</label><span id="name">John Doe</span></div>
+                    <div class="profile-item"><label for="phone">Phone Number:</label><span id="phone">(123) 456-7890</span></div>
+                    <div class="profile-item"><label for="age">Age:</label><span id="age">30</span></div>
+                    <div class="profile-item"><label for="position">Position:</label><span id="position">Software Engineer</span></div>
+                    <div class="profile-item"><label for="department">Department:</label><span id="department">Oncology</span></div>
+                    <div class="profile-item"><label for="email">Email:</label><span id="email">john.doe@example.com</span></div>
+                    <div class="profile-item"><label for="address">Address:</label><span id="address">123 Main St, Anytown, USA</span></div>
                 </div>
             </div>
         </section>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                // Function to show the selected section and hide others
-                function showSection(sectionId) {
-                    const sections = document.querySelectorAll('section');
-                    sections.forEach(section => {
-                        section.style.display = section.id === sectionId ? 'block' : 'none';
-                    });
-                }
-    
-                // Function to handle login action
-                function login() {
-                    // Get email and password values from the form
-                    const email = document.getElementById('login-email').value;
-                    const password = document.getElementById('login-password').value;
-    
-                    // Simulate validation (you can replace this with actual validation logic)
-                    if (email && password) {
-                        alert('Logged in successfully!'); // Simulate successful login
-                        document.getElementById('navbar').style.display = 'none'; // Hide navigation
-                        showSection('dashboard'); // Show dashboard section
-                    } else {
-                        alert('Please enter your email and password.'); // Alert if fields are empty
-                    }
-                }
-    
-                // Event listeners for navigation links
-                document.getElementById('nav-home').addEventListener('click', function (e) {
-                    e.preventDefault();
-                    showSection('home');
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to show the selected section and hide others
+            function showSection(sectionId) {
+                const sections = document.querySelectorAll('section');
+                sections.forEach(section => {
+                    section.style.display = section.id === sectionId ? 'block' : 'none';
                 });
-    
-                document.getElementById('nav-signup').addEventListener('click', function (e) {
-                    e.preventDefault();
-                    showSection('signup');
-                });
-    
-                document.getElementById('nav-login').addEventListener('click', function (e) {
-                    e.preventDefault();
-                    showSection('login'); // Show login section
-                });
-    
-                // Form submission handlers
-                document.getElementById('signup-form').addEventListener('submit', function (e) {
-                    e.preventDefault(); // Prevent form submission
-                    alert('Signup functionality not implemented yet.'); // Placeholder alert
-                });
-    
-                document.getElementById('login-form').addEventListener('submit', function (e) {
-                    e.preventDefault(); // Prevent form submission
-                    login(); // Call login function on form submit
-                });
-    
-                // Show the home section by default
-                showSection('home');
-            });
-    
-            // Function to handle logout action
-            function logout() {
-                alert('Logged out');
-                document.getElementById('navbar').style.display = 'block'; // Show navigation again
-                showSection('home'); // Show home section
             }
-    
+
             // Event listener for logout button
             document.getElementById('logout-btn').addEventListener('click', function() {
                 logout(); // Call logout function on button click
             });
-        </script>
-        
-        <!-- External JavaScript file -->
-        <script src="/autoschedule_app/app.js"></script>
-        </section>
-    </main>
+
+            // Function to handle logout action
+            function logout() {
+                alert('Logged out');
+                showSection('home'); // Show home section
+            }
+
+            // Show the dashboard section by default (or another section as needed)
+            showSection('dashboard');
+        });
+    </script>
 </body>
 </html>
