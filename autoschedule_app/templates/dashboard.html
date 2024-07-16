@@ -20,12 +20,12 @@
 
     <main>
         <!-- Dashboard Section -->
-        <section id="dashboard" class="dashboard-page" style="display:none;">
+        <section id="dashboard" class="dashboard-page">
             <div class="sidebar">
                 <h2>Navigation</h2>
                 <a href="#schedule" onclick="showSection('schedule')">View Schedule</a>
                 <a href="#profile" onclick="showSection('profile')">User Profile</a>
-                <a href="#admin" onclick="showAdminSection()">Admin</a> <!-- Admin link -->
+                <a href="#admin" onclick="showAdminSection()">Admin</a>
             </div>
             <div class="main-content">
                 <h2>Dashboard</h2>
@@ -44,7 +44,7 @@
         </section>
 
         <!-- Schedule Management Section -->
-        <section id="schedule" class="schedule-page" style="display:none;">
+        <section id="schedule" class="schedule-page">
             <div class="container">
                 <h2>Manage Schedule</h2>
                 <div class="schedule-list">
@@ -56,7 +56,7 @@
         </section>
 
         <!-- Add Shift Section -->
-        <section id="add-shift" class="add-shift-page" style="display:none;">
+        <section id="add-shift" class="add-shift-page">
             <div class="container">
                 <h2>Add New Shift</h2>
                 <form id="add-shift-form">
@@ -76,7 +76,7 @@
         </section>
 
         <!-- User Profile Section -->
-        <section id="profile" class="profile-page" style="display:none;">
+        <section id="profile" class="profile-page">
             <div class="profile-container">
                 <h2>User Profile</h2>
                 <div class="profile-image">
@@ -95,7 +95,7 @@
         </section>
 
         <!-- Admin Section -->
-        <section id="admin" class="admin-page" style="display:none;">
+        <section id="admin" class="admin-page">
             <div class="admin-container">
                 <h2>Admin Dashboard</h2>
                 <table id="user-table">
@@ -113,22 +113,20 @@
                 </table>
             </div>
         </section>
-
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', () => {
             // Function to show the selected section and hide others
-            function showSection(sectionId) {
-                const sections = document.querySelectorAll('section');
-                sections.forEach(section => {
+            const showSection = (sectionId) => {
+                document.querySelectorAll('section').forEach(section => {
                     section.style.display = section.id === sectionId ? 'block' : 'none';
                 });
             }
 
             // Function to render users in admin section
-            function renderUsers() {
-                const userTableBody = document.getElementById("user-table").getElementsByTagName("tbody")[0];
+            const renderUsers = () => {
+                const userTableBody = document.getElementById("user-table").querySelector("tbody");
                 userTableBody.innerHTML = ""; // Clear existing rows
 
                 users.forEach(user => {
@@ -144,23 +142,23 @@
             }
 
             // Function to simulate or retrieve shift details for a user
-            function getShiftDetails(user) {
-                return "Shift details for " + user.name; // Replace with actual shift data
+            const getShiftDetails = (user) => {
+                return `Shift details for ${user.name}`; // Replace with actual shift data
             }
 
             // Show the admin section
-            function showAdminSection() {
+            const showAdminSection = () => {
                 showSection('admin');
                 renderUsers();
             }
 
             // Event listener for logout button
-            document.getElementById('logout-btn').addEventListener('click', function() {
+            document.getElementById('logout-btn').addEventListener('click', () => {
                 logout(); // Call logout function on button click
             });
 
             // Function to handle logout action
-            function logout() {
+            const logout = () => {
                 alert('Logged out');
                 showSection('home'); // Show home section
             }

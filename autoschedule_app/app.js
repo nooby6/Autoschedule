@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     // Event listeners for forms and logout
     document.getElementById("signup-form").addEventListener("submit", handleSignup);
     document.getElementById("login-form").addEventListener("submit", handleLogin);
@@ -42,7 +42,7 @@ function handleSignup(event) {
 
         // Redirect to dashboard after signup
         setTimeout(() => {
-            window.location.href = "dashboard.html"; // Redirect to dashboard
+            window.location.href = "dashboard.html";
         }, 1000); // Wait 1 second before redirecting
     } else {
         showMessage("Please fill out all fields.");
@@ -63,7 +63,7 @@ function handleLogin(event) {
 
         // Redirect to dashboard after login
         setTimeout(() => {
-            window.location.href = "dashboard.html"; // Redirect to dashboard
+            window.location.href = "dashboard.html";
         }, 1000); // Wait 1 second before redirecting
     } else {
         showMessage("Invalid email or password.");
@@ -79,8 +79,10 @@ function showMessage(message) {
 
 // Logout function
 function logout() {
-    localStorage.removeItem("loggedInUser"); // Clear user data
-    showSection('home'); // Show home section on logout
+    // Clear user data
+    localStorage.removeItem("loggedInUser");
+    // Redirect to landing page
+    window.location.href = "/autoschedule_app/templates/index.html";
 }
 
 // Show/hide sections
@@ -106,14 +108,16 @@ async function fetchEvents() {
 async function initializeCalendar() {
     const calendarEl = document.getElementById('calendar');
     const calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
+        // Configure the initial view and toolbar
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
-        events: await fetchEvents() // Fetch and set events
+        // Fetch and set events
+        events: await fetchEvents()
     });
     
-    calendar.render(); // Render the calendar
+    // Render the calendar
+    calendar.render();
 }
