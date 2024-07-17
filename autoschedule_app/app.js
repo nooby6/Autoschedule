@@ -63,8 +63,8 @@ function handleLogin(event) {
 
         // Redirect to dashboard after login
         setTimeout(() => {
-            window.location.href = "dashboard.html";
-        }, 1000); // Wait 1 second before redirecting
+            window.location.href = "/autoschedule_app/templates/dashboard.html";
+        }, 100); // Wait .1 second before redirecting
     } else {
         showMessage("Invalid email or password.");
     }
