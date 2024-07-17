@@ -216,3 +216,60 @@ button:hover {
         margin-left: 0;
     }
 }
+
+/* Media Queries for Tablet and Mobile */
+@media (max-width: 480px) {
+    header {
+        padding: 10px 20px;
+    }
+
+    nav ul li {
+        margin-right: 15px;
+    }
+
+    nav a {
+        font-size: 1em;
+    }
+
+    .sidebar {
+        padding: 20px;
+    }
+
+    .sidebar h2 {
+        font-size: 1.4em;
+    }
+
+    .sidebar a {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .main-content h2 {
+        font-size: 1.6em;
+    }
+
+    .shift-calendar h2 {
+        font-size: 1.4em;
+    }
+
+    .shift-calendar .calendar-day {
+        padding: 5px;
+    }
+
+    .profile-container {
+        padding: 20px;
+    }
+
+    .profile-image img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-item {
+        padding: 5px 0;
+    }
+}
