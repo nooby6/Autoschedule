@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav id="navbar">
             <ul>
                 <li><a href="#home" id="nav-home">Home</a></li>
                 <li><a href="#signup" id="nav-signup">Sign Up</a></li>
@@ -148,7 +148,11 @@
                 </div>
                 <button onclick="showSection('dashboard')">Back to Dashboard</button>
             </div>
-        
+        </section>
+
+        <!-- Logout Button -->
+        <button id="logout-btn">Log Out</button>
+
     </main>
     
     <footer>
@@ -182,6 +186,13 @@
                 }
             }
 
+            // Function to handle logout action
+            function logout() {
+                alert('Logged out');
+                document.getElementById('navbar').style.display = 'block'; // Show navigation again
+                showSection('home'); // Show home section
+            }
+
             // Event listeners for navigation links
             document.getElementById('nav-home').addEventListener('click', function (e) {
                 e.preventDefault();
@@ -209,20 +220,13 @@
                 login(); // Call login function on form submit
             });
 
+            // Event listener for logout button
+            document.getElementById('logout-btn').addEventListener('click', function () {
+                logout(); // Call logout function on button click
+            });
+
             // Show the home section by default
             showSection('home');
-        });
-
-        // Function to handle logout action
-        function logout() {
-            alert('Logged out');
-            document.getElementById('navbar').style.display = 'block'; // Show navigation again
-            showSection('home'); // Show home section
-        }
-
-        // Event listener for logout button
-        document.getElementById('logout-btn').addEventListener('click', function() {
-            logout(); // Call logout function on button click
         });
     </script>
     

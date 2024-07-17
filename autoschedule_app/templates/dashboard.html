@@ -7,9 +7,9 @@
     <link href="/path/to/fullcalendar/core/main.css" rel="stylesheet">
     <link href="/path/to/fullcalendar/daygrid/main.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/dashstyles.css">
-    <script src="/path/to/fullcalendar/core/main.js" defer></script>
-    <script src="/path/to/fullcalendar/daygrid/main.js" defer></script>
-    <script src="/autoschedule_app/app.js" defer></script>
+    <script src="/path/to/fullcalendar/core/main.js" defer type="module"></script>
+    <script src="/path/to/fullcalendar/daygrid/main.js" defer type="module"></script>
+    <script src="/autoschedule_app/app.js" defer type="module"></script>
 </head>
 <body>
     <header>
@@ -25,9 +25,9 @@
         <section id="dashboard" class="dashboard-page">
             <div class="sidebar">
                 <h2>Navigation</h2>
-                <a href="#schedule" onclick="showSection('schedule')">View Schedule</a>
-                <a href="#profile" onclick="showSection('profile')">User Profile</a>
-                <a href="#admin" onclick="showAdminSection()">Admin</a>
+                <a href="#schedule" onclick="showSection('schedule'); return false;">View Schedule</a>
+                <a href="#profile" onclick="showSection('profile'); return false;">User Profile</a>
+                <a href="#admin" onclick="showAdminSection(); return false;">Admin</a>
             </div>
             <div class="main-content">
                 <h2>Dashboard</h2>
@@ -46,7 +46,7 @@
         </section>
 
         <!-- Schedule Management Section -->
-        <section id="schedule" class="schedule-page">
+        <section id="schedule" class="schedule-page" style="display: none;">
             <div class="container">
                 <h2>Manage Schedule</h2>
                 <div class="schedule-list">
@@ -58,7 +58,7 @@
         </section>
 
         <!-- Add Shift Section -->
-        <section id="add-shift" class="add-shift-page">
+        <section id="add-shift" class="add-shift-page" style="display: none;">
             <div class="container">
                 <h2>Add New Shift</h2>
                 <form id="add-shift-form">
@@ -78,7 +78,7 @@
         </section>
 
         <!-- User Profile Section -->
-        <section id="profile" class="profile-page">
+        <section id="profile" class="profile-page" style="display: none;">
             <div class="profile-container">
                 <h2>User Profile</h2>
                 <div class="profile-image">
@@ -97,7 +97,7 @@
         </section>
 
         <!-- Admin Section -->
-        <section id="admin" class="admin-page">
+        <section id="admin" class="admin-page" style="display: none;">
             <div class="admin-container">
                 <h2>Admin Dashboard</h2>
                 <table id="user-table">
