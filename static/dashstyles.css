@@ -154,6 +154,48 @@ button:hover {
     transform: scale(1.05); /* Slightly larger on hover */
 }
 
+/* User profile styles */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+    margin-top: 40px;
+    margin-right: 20px;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.profile-details {
+    width: 100%;
+}
+
+.profile-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+}
+
+.profile-item label {
+    font-weight: bold;
+    color: #555;
+}
+
+.profile-item span {
+    color: #333;
+}
+
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     .sidebar {
@@ -168,5 +210,9 @@ button:hover {
     .main-content {
         margin-left: 0;
         padding: 20px;
+    }
+
+    .profile-container {
+        margin-left: 0;
     }
 }
