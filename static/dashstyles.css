@@ -26,6 +26,8 @@ header {
 
 nav ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
@@ -35,7 +37,7 @@ nav ul li {
 
 nav a {
     color: white;
-    text-decoration: none;
+    text-decoration: center;
     font-weight: bold;
     font-size: 1.1em;
     transition: color 0.3s ease;
