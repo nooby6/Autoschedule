@@ -67,6 +67,7 @@ main {
   margin: 20px 0 30px;
   color: #fff;
   font-family: "Nunito", sans-serif;
+  padding: auto;
 }
 
 .logo {
@@ -123,7 +124,7 @@ main {
 
 .nav-item b:nth-child(2)::before {
   content: "";
-  position: absolute;
+  position: flex;
   top: 0;
   left: 0;
   width: 100%;
