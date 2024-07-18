@@ -3,230 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Nurse Scheduling App</title>
     <link href="/path/to/fullcalendar/core/main.css" rel="stylesheet">
     <link href="/path/to/fullcalendar/daygrid/main.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/dashstyles.css">
     <script src="/path/to/fullcalendar/core/main.js" defer></script>
     <script src="/path/to/fullcalendar/daygrid/main.js" defer></script>
     <script src="/autoschedule_app/app.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
+    <main>
+        <nav class="main-menu">
+            <h1>AutoSchedule</h1>
+            <img class="logo" src="/static/assets/Autoschedule_logo-final.png" alt="Logo" />
             <ul>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="#" id="logout-btn">Logout</a></li>
+                <li class="nav-item active">
+                    <a href="#">
+                        <i class="fa fa-calendar-alt nav-icon"></i>
+                        <span class="nav-text">Schedule</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">
+                        <i class="fa fa-user-nurse nav-icon"></i>
+                        <span class="nav-text">Nurses</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">
+                        <i class="fa fa-calendar-check nav-icon"></i>
+                        <span class="nav-text">Shifts</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">
+                        <i class="fa fa-sliders-h nav-icon"></i>
+                        <span class="nav-text">Settings</span>
+                    </a>
+                </li>
             </ul>
         </nav>
-    </header>
 
-    <main>
-        <section id="dashboard" class="dashboard-page">
-            <div class="sidebar">
-                <h2>Navigation</h2>
-                <a href="#schedule" onclick="showSection('schedule'); return false;">View Schedule</a>
-                <a href="#profile" onclick="showSection('profile'); return false;">User Profile</a>
-                <a href="#admin" onclick="showAdminSection(); return false;">Admin</a>
+        <section class="content">
+            <div class="schedule">
+                <h1>Shift Schedule</h1>
+                <div id="calendar"></div> <!-- Calendar will be populated by FullCalendar -->
             </div>
-            <div class="main-content">
-                <h2>Dashboard</h2>
-                <div class="overview card">
-                    <p>Welcome, <span id="user-name">User</span></p>
-                    <p>Next shift: <span id="next-shift">None</span></p>
-                </div>
-                <div class="calendar card">
-                    <div id="calendar"></div>
-                </div>
-                <div class="actions">
-                    <button onclick="showSection('schedule')" class="button">Manage Schedule</button>
-                    <button onclick="showSection('profile')" class="button">Edit Profile</button>
-                </div>
-            </div>
-        </section>
 
-        <!-- Schedule Management Section -->
-        <section id="schedule" class="schedule-page">
-            <div class="container">
-                <h2>Manage Schedule</h2>
-                <div class="schedule-list">
-                    <!-- Schedule items will be populated here -->
+            <div class="nurse-list">
+                <h1>Nurses</h1>
+                <ul class="nurse-items">
+                    <li>
+                        <img src="/path/to/nurse1.jpg" alt="Nurse 1" />
+                        <div class="nurse-details">
+                            <h2>Jane Doe</h2>
+                            <p>Specialty: ICU</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/path/to/nurse2.jpg" alt="Nurse 2" />
+                        <div class="nurse-details">
+                            <h2>John Smith</h2>
+                            <p>Specialty: Pediatrics</p>
+                        </div>
+                    </li>
+                    <!-- Additional nurses -->
+                </ul>
+            </div>
+
+            <div class="shift-details">
+                <h1>Shift Details</h1>
+                <div class="shift-info">
+                    <h2>Selected Shift</h2>
+                    <p>Date: July 20, 2024</p>
+                    <p>Shift Time: Day Shift</p>
+                    <p>Nurses Assigned:</p>
+                    <ul class="assigned-nurses">
+                        <li>Jane Doe</li>
+                        <li>John Smith</li>
+                    </ul>
+                    <button class="btn">Assign Nurse</button>
                 </div>
-                <button onclick="showSection('add-shift')">Add Shift</button>
-                <button onclick="showSection('dashboard')">Back to Dashboard</button>
-            </div>
-        </section>
-
-        <!-- Add Shift Section -->
-        <section id="add-shift" class="add-shift-page">
-            <div class="container">
-                <h2>Add New Shift</h2>
-                <form id="add-shift-form">
-                    <label for="shift-date">Date</label>
-                    <input type="date" id="shift-date" name="shift-date" required>
-                    
-                    <label for="shift-time">Time</label>
-                    <input type="time" id="shift-time" name="shift-time" required>
-                    
-                    <label for="shift-unit">Unit</label>
-                    <input type="text" id="shift-unit" name="shift-unit" required>
-                    
-                    <button type="submit">Add Shift</button>
-                </form>
-                <button onclick="showSection('schedule')">Back to Schedule</button>
-            </div>
-        </section>
-
-        <!-- User Profile Section -->
-        <section id="profile" class="profile-page">
-            <div class="profile-container">
-                <h2>User Profile</h2>
-                <div class="profile-image">
-                    <img src="/static/assets/profile-image.jpg" alt="Profile Image">
-                </div>
-                <div class="profile-details">
-                    <div class="profile-item"><label for="name">Name:</label><span id="name">John Doe</span></div>
-                    <div class="profile-item"><label for="phone">Phone Number:</label><span id="phone">(123) 456-7890</span></div>
-                    <div class="profile-item"><label for="age">Age:</label><span id="age">30</span></div>
-                    <div class="profile-item"><label for="position">Position:</label><span id="position">Software Engineer</span></div>
-                    <div class="profile-item"><label for="department">Department:</label><span id="department">Oncology</span></div>
-                    <div class="profile-item"><label for="email">Email:</label><span id="email">john.doe@example.com</span></div>
-                    <div class="profile-item"><label for="address">Address:</label><span id="address">123 Main St, Anytown, USA</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Admin Section -->
-        <section id="admin" class="admin-page">
-            <div class="admin-container">
-                <h2>Admin Dashboard</h2>
-                <table id="user-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Is Admin</th>
-                            <th>Shift Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- User rows will be inserted here -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Shift Calendar Section -->
-        <section id="shift-calendar" class="shift-calendar-page">
-            <div class="container">
-                <h2>Shift Calendar</h2>
-                <div id="shift-calendar-container"></div>
-                <button onclick="showSection('dashboard')">Back to Dashboard</button>
             </div>
         </section>
     </main>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-            if (loggedInUser) {
-                document.getElementById("user-name").innerText = loggedInUser.name;
-                // Set next shift if available, replace with actual logic
-                document.getElementById("next-shift").innerText = "Next Shift Details Here"; // Update with actual data
-            }
-
-            // Function to show the selected section and hide others
-            const showSection = (sectionId) => {
-                document.querySelectorAll('section').forEach(section => {
-                    section.style.display = section.id === sectionId ? 'block' : 'none';
-                });
-
-                if (sectionId === 'shift-calendar') {
-                    initializeShiftCalendar();
-                }
-            }
-
-            // Function to render users in admin section
-            const renderUsers = () => {
-                const userTableBody = document.getElementById("user-table").querySelector("tbody");
-                userTableBody.innerHTML = ""; // Clear existing rows
-
-                users.forEach(user => {
-                    const row = document.createElement("tr");
-                    row.innerHTML = `
-                        <td>${user.name}</td>
-                        <td>${user.email}</td>
-                        <td>${user.isAdmin ? "Yes" : "No"}</td>
-                        <td>${getShiftDetails(user)}</td>
-                    `;
-                    userTableBody.appendChild(row);
-                });
-            }
-
-            const getShiftDetails = (user) => {
-                return `Shift details for ${user.name}`; // Replace with actual shift data
-            }
-
-            const showAdminSection = () => {
-                showSection('admin');
-                renderUsers();
-            }
-
-            document.getElementById('logout-btn').addEventListener('click', () => {
-                logout(); // Call logout function on button click
-            });
-
-            function logout() {
-                localStorage.removeItem("loggedInUser"); // Clear user data
-                window.location.href = "index.html"; // Redirect to landing page
-            }
-
-            // Show the dashboard section by default
-            showSection('dashboard');
-        });
-
-        // Initialize the shift calendar
-        function initializeShiftCalendar() {
-            const calendarEl = document.getElementById('shift-calendar-container');
-            const calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                },
-                events: generateShiftEvents() // Fetch and set events
-            });
-            
-            calendar.render(); // Render the calendar
-        }
-
-        // Generate events for the shift calendar (mock implementation)
-        function generateShiftEvents() {
-            const events = [];
-            const shiftDates = [
-                { start: '2024-07-01', end: '2024-07-02', title: 'Work Day' },
-                { start: '2024-07-05', end: '2024-07-06', title: 'Work Day' },
-                { start: '2024-07-08', end: '2024-07-09', title: 'Work Day' },
-                { start: '2024-07-12', end: '2024-07-12', title: 'Day Off' },
-                { start: '2024-07-15', end: '2024-07-16', title: 'Work Day' },
-                { start: '2024-07-19', end: '2024-07-19', title: 'Day Off' },
-                { start: '2024-07-22', end: '2024-07-23', title: 'Work Day' },
-                { start: '2024-07-26', end: '2024-07-26', title: 'Day Off' },
-                { start: '2024-07-29', end: '2024-07-30', title: 'Work Day' }
-            ];
-
-            shiftDates.forEach(shift => {
-                events.push({
-                    title: shift.title,
-                    start: shift.start,
-                    end: shift.end,
-                    classNames: shift.title === 'Work Day' ? 'workday' : 'dayoff'
-                });
-            });
-
-            return events;
-        }
-    </script>
 </body>
 </html>
