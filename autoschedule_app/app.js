@@ -58,13 +58,13 @@ function handleLogin(event) {
     // Validate user credentials
     const user = users.find(user => user.email === email && user.password === password);
     if (user) {
-        // Set user name in local storage if needed
+        // Set user data in local storage if needed
         localStorage.setItem("loggedInUser", JSON.stringify(user));
 
         // Redirect to dashboard after login
         setTimeout(() => {
             window.location.href = "/autoschedule_app/templates/dashboard.html";
-        }, 100); // Wait .1 second before redirecting
+        }, 100); // Wait 0.1 second before redirecting
     } else {
         showMessage("Invalid email or password.");
     }
@@ -108,16 +108,12 @@ async function fetchEvents() {
 async function initializeCalendar() {
     const calendarEl = document.getElementById('calendar');
     const calendar = new FullCalendar.Calendar(calendarEl, {
-        // Configure the initial view and toolbar
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
-        // Fetch and set events
         events: await fetchEvents()
     });
-    
-    // Render the calendar
     calendar.render();
 }
