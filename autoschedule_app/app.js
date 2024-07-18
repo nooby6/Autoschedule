@@ -1,11 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Event listeners for forms and logout
-    document.getElementById("signup-form").addEventListener("submit", handleSignup);
-    document.getElementById("login-form").addEventListener("submit", handleLogin);
-    document.getElementById("logout-btn").addEventListener("click", logout);
+    if (document.getElementById("signup-form")) {
+        document.getElementById("signup-form").addEventListener("submit", handleSignup);
+    }
+    if (document.getElementById("login-form")) {
+        document.getElementById("login-form").addEventListener("submit", handleLogin);
+    }
+    if (document.getElementById("logout-btn")) {
+        document.getElementById("logout-btn").addEventListener("click", logout);
+    }
 
-    // Initialize the calendar
-    initializeCalendar();
+    // Initialize the calendar if the calendar element exists
+    if (document.getElementById("calendar")) {
+        initializeCalendar();
+    }
+
+    // Initialize navigation event listeners
+    initializeNavigation();
 });
 
 // Mock user data (replace with a real database in production)
@@ -116,4 +127,17 @@ async function initializeCalendar() {
         events: await fetchEvents()
     });
     calendar.render();
+}
+
+// Initialize navigation
+function initializeNavigation() {
+    const navItems = document.querySelectorAll(".nav-item");
+    navItems.forEach((navItem) => {
+        navItem.addEventListener("click", () => {
+            navItems.forEach((item) => {
+                item.classList.remove("active");
+            });
+            navItem.classList.add("active");
+        });
+    });
 }

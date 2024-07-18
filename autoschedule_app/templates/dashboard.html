@@ -42,6 +42,12 @@
                         <span class="nav-text">Settings</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <button id="logout-btn" class="logout-btn">
+                        <i class="fa fa-sign-out-alt nav-icon"></i>
+                        <span class="nav-text">Logout</span>
+                    </button>
+                </li>
             </ul>
         </nav>
 
@@ -91,45 +97,5 @@
             </div>
         </section>
     </main>
-
-    <script>
-        // Add active class to the current nav item
-        const navItems = document.querySelectorAll(".nav-item");
-        navItems.forEach((navItem) => {
-            navItem.addEventListener("click", () => {
-                navItems.forEach((item) => {
-                    item.classList.remove("active");
-                });
-                navItem.classList.add("active");
-            });
-        });
-
-        // Initialize FullCalendar
-        document.addEventListener('DOMContentLoaded', () => {
-            const calendarEl = document.getElementById('calendar');
-            const calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                },
-                events: generateShiftEvents() // Fetch and set events
-            });
-
-            calendar.render(); // Render the calendar
-        });
-
-        // Generate events for the shift calendar (mock implementation)
-        function generateShiftEvents() {
-            return [
-                { title: 'Shift 1', start: '2024-07-01', end: '2024-07-02' },
-                { title: 'Shift 2', start: '2024-07-05', end: '2024-07-06' },
-                { title: 'Shift 3', start: '2024-07-08', end: '2024-07-09' },
-                { title: 'Shift 4', start: '2024-07-12', end: '2024-07-13' },
-                { title: 'Shift 5', start: '2024-07-15', end: '2024-07-16' }
-            ];
-        }
-    </script>
 </body>
 </html>
