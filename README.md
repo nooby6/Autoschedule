@@ -12,6 +12,7 @@ AutoSchedule is a web application designed to help organizations monitor employe
 - [Contributing](#contributing)
 - [License](#license)
 
+
 ## Features
 
 - Responsive landing page
@@ -61,28 +62,7 @@ The application should now be running at `http://127.0.0.1:5000`.
 
 1. **Home Page:** Navigate to the home page to see the landing page with options to log in or sign up.
 2. **Login Page:** Click the "Login" link in the navigation bar to go to the login page.
-3. **Sign Up Page:** Click the "Sign Up" link in the navigation bar to go to the sign-up page.
-
-## Project Structure
-
-autoschedule/
-│
-├── autoschedule_app/
-│ ├── init.py
-│ ├── routes.py
-│ ├── templates/
-│ │ ├── index.html
-│ │ ├── login.html
-│ │ └── signup.html
-│ └── static/
-│ ├── styles.css
-│ └── assets/
-│ ├── Autoschedule_logo-final.png
-│ └── autoschedule_banner.jpg
-│
-├── run.py
-├── requirements.txt
-└── README.md
+3. **Sign Up Page:** Click the "Sign Up" link in the navigation bar to go to the sign-up page
 
 
 ## Contributing
